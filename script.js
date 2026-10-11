@@ -132,14 +132,29 @@ $("#lang").addEventListener("click", () => {
 });
 
 // ===== Theme =====
+// Follows the device (light/dark) automatically; the button sets a manual override,
+// and picking the same theme as the device goes back to automatic.
 const themeBtn = $("#theme");
-function setTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  themeBtn.textContent = theme === "light" ? "🌙" : "☀️";
-  store.set("theme", theme);
+const deviceLight = matchMedia("(prefers-color-scheme: light)");
+const deviceTheme = () => (deviceLight.matches ? "light" : "dark");
+const currentTheme = () => document.documentElement.dataset.theme || deviceTheme();
+function renderTheme() {
+  themeBtn.textContent = currentTheme() === "light" ? "🌙" : "☀️";
 }
-setTheme(store.get("theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
-themeBtn.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light"));
+function applyTheme(choice) {
+  if (choice) document.documentElement.dataset.theme = choice;
+  else delete document.documentElement.dataset.theme;
+  renderTheme();
+}
+store.set("theme", ""); // drop the value older versions saved on every visit
+applyTheme(store.get("themeChoice"));
+themeBtn.addEventListener("click", () => {
+  const next = currentTheme() === "light" ? "dark" : "light";
+  const choice = next === deviceTheme() ? "" : next;
+  store.set("themeChoice", choice);
+  applyTheme(choice);
+});
+deviceLight.addEventListener("change", renderTheme);
 
 // ===== Ticker tape =====
 const tickers = [
