@@ -387,7 +387,47 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .contact p { color: var(--muted); }
 .contact .hero__cta { justify-content: center; }
 
-.footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 1.5rem 16px 2.5rem; }
+.footer { margin-top: 2rem; border-top: 1px solid var(--line); background: var(--bg-2); color: var(--muted); font-size: 0.88rem; }
+.footer__top, .footer__bottom { max-width: 1180px; margin: 0 auto; padding: 1.6rem clamp(16px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
+.footer__bottom { padding-top: 1rem; padding-bottom: 1.6rem; background: linear-gradient(var(--line), var(--line)) content-box top / 100% 1px no-repeat; }
+.footer__bottom p { margin: 0; }
+.btn--cv { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+.footer__bottom b { color: var(--up); font-weight: 500; white-space: nowrap; }
+.footer__id { display: flex; align-items: center; gap: 0.8rem; }
+.footer__id img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--accent); }
+.footer__id b { display: block; color: var(--text); font: 700 1.05rem "Fraunces", serif; }
+.footer__clock { font-size: 0.8rem; }
+.socials { display: flex; gap: 0.6rem; }
+.socials a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--text); transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s; }
+.socials a:hover { transform: translateY(-3px); background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.socials svg { width: 19px; height: 19px; fill: currentColor; }
+.socials svg.stroke { fill: none; stroke: currentColor; stroke-width: 2; }
+.to-top {
+  position: fixed;
+  right: clamp(14px, 3vw, 28px);
+  bottom: calc(clamp(14px, 3vw, 28px) + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { transform: translateY(-3px); }
+.to-top svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 640px) {
+  .footer__top, .footer__bottom { flex-direction: column; text-align: center; }
+  .footer__id { flex-direction: column; gap: 0.5rem; }
+  .footer__bottom { padding-bottom: 5.5rem; } /* room for the floating button */
+}
 
 /* ---------- Thesis extract ---------- */
 .btn--small { margin-top: 1rem; padding: 0.5rem 1rem; font: 600 0.88rem "Inter", sans-serif; background: var(--accent-soft); color: var(--text); cursor: pointer; }
@@ -778,8 +818,27 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Lorenzo Ferraioli</p>
+    <div class="footer__top">
+      <div class="footer__id">
+        <img src="avatar-96.jpg" alt="" width="44" height="44" loading="lazy" />
+        <div>
+          <b>Lorenzo Ferraioli</b>
+          <span class="footer__clock mono">🕒 <span id="clock">--:--</span> <span data-i18n="footer.clock">in Warsaw</span></span>
+        </div>
+      </div>
+      <nav class="socials" aria-label="Social">
+        <a href="https://www.linkedin.com/in/lorenzoferraioli" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/lorenzoferraioli_/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://github.com/LoryTheHawk" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year"></span> Lorenzo Ferraioli · <span data-i18n="footer.close">LRNZ closed at <b class="mono">110.00 ▲</b> · Thanks for visiting 🦅</span></p>
+      <a class="btn btn--accent btn--cv" href="Lorenzo_Ferraioli_CV.pdf" download data-i18n="footer.cv">📄 Download CV</a>
+    </div>
   </footer>
+
+  <a class="to-top" id="toTop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
 
   <!-- Thesis extract -->
   <dialog class="thesis" id="thesis" aria-labelledby="thesis-title">
@@ -865,6 +924,6 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
   </dialog>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=20" defer></script>
+  <script src="script.js?v=21" defer></script>
 </body>
 </html>

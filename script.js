@@ -95,6 +95,9 @@ const IT = {
   "int.f3": "✈️ Roma, Milano, Varsavia… il mio portafoglio di città è ben diversificato.",
   "int.f4": "🍝 Regola numero uno: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
+  "footer.clock": "a Varsavia",
+  "footer.cv": "📄 Scarica il CV",
+  "footer.close": "LRNZ chiude a <b class=\"mono\">110,00 ▲</b> · Grazie della visita 🦅",
   "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa. E sono sempre pronto per una bella chiacchierata sui mercati.",
 };
 
@@ -300,4 +303,21 @@ $("#hawk").addEventListener("click", (e) => {
 });
 
 $("#year").textContent = new Date().getFullYear();
+
+// ===== Footer: local time in Warsaw =====
+const clockEl = $("#clock");
+const warsawTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Warsaw", hour: "2-digit", minute: "2-digit" });
+const tickClock = () => { clockEl.textContent = warsawTime.format(new Date()); };
+tickClock();
+setInterval(tickClock, 15000);
+
+// ===== Floating "back to top" button =====
+const toTop = $("#toTop");
+const toggleToTop = () => toTop.classList.toggle("is-visible", scrollY > 700);
+addEventListener("scroll", toggleToTop, { passive: true });
+toTop.addEventListener("click", (e) => {
+  e.preventDefault();
+  scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+});
+toggleToTop();
 applyLang();
