@@ -96,7 +96,7 @@ const IT = {
   "int.f4": "🍝 Regola numero uno: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
   "footer.clock": "a Varsavia",
-  "footer.cv": "Scarica il CV",
+  "footer.cv": "Apri il CV",
   "footer.close": "LRNZ chiude a <b class=\"mono\">110,00 ▲</b> · Grazie della visita 🦅",
   "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa. E sono sempre pronto per una bella chiacchierata sui mercati.",
 };
@@ -313,7 +313,10 @@ setInterval(tickClock, 15000);
 
 // ===== Floating "back to top" button =====
 const toTop = $("#toTop");
-const toggleToTop = () => toTop.classList.toggle("is-visible", scrollY > 700);
+// On wider screens the button would sit on top of the footer's CV button, so it steps aside there
+let footerInView = false;
+const toggleToTop = () => toTop.classList.toggle("is-visible", scrollY > 700 && !(footerInView && innerWidth > 640));
+new IntersectionObserver(([entry]) => { footerInView = entry.isIntersecting; toggleToTop(); }).observe($(".footer__bottom"));
 addEventListener("scroll", toggleToTop, { passive: true });
 toTop.addEventListener("click", (e) => {
   e.preventDefault();
