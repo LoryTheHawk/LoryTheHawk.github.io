@@ -300,4 +300,7 @@ $("#hawk").addEventListener("click", (e) => {
 });
 
 $("#year").textContent = new Date().getFullYear();
+
+// Start the ticker only once the page is fully loaded, so the first paint stays still
+addEventListener("load", () => setTimeout(() => document.documentElement.classList.add("is-loaded"), 600));
 applyLang();

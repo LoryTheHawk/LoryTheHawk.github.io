@@ -20,9 +20,9 @@ Personal website of **Lorenzo Ferraioli**, M.Sc. Banking & Finance student at UC
 Plain **HTML, CSS and JavaScript**: no frameworks, no build step. Hosted for free on **GitHub Pages**.
 
 ```
-index.html   → content (English)
-style.css    → design, themes, animations
+index.html   → content (English) and inlined CSS: design, themes, animations
 script.js    → Italian translations, chart, ticker, interactions
+fonts/       → self-hosted Fraunces, Inter and JetBrains Mono (OFL)
 ```
 
 Run it locally by simply opening `index.html` in your browser.
