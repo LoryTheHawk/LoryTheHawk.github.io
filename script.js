@@ -22,11 +22,18 @@ const IT = {
   "stats.cities": "città in cui ho studiato: Roma, Milano, Varsavia",
   "stats.bsc": "voto di laurea triennale, con lode",
   "stats.fs": "bilanci analizzati per la CFA Challenge",
-  "stats.scout": "anni da scout ⛺",
   "about.title": "Chi sono",
-  "about.p1": "Sono uno studente della Laurea Magistrale in Finanza all'<strong>Università Cattolica del Sacro Cuore</strong> di Milano e sto frequentando un semestre di scambio alla <strong>Kozminski University</strong> di Varsavia. Mi interessano molto l'<strong>investment banking e i mercati dei capitali</strong>.",
-  "about.p2": "Ho sviluppato solide competenze in modellazione finanziaria, analisi quantitativa e valutazione del rischio, con un approccio basato sui dati. Parlo fluentemente italiano e inglese, mi trovo a mio agio in ambienti dinamici e multiculturali e sono pronto a crescere nel settore finanziario.",
-  "about.p3": "Nel tempo libero smanetto con il codice: HTML, CSS e JavaScript (proprio questo sito 👋), più R e Python per i dati.",
+  "about.badge": "Ora a Varsavia 🇵🇱",
+  "about.lead": "Studente di finanza tra <strong>Milano</strong> e <strong>Varsavia</strong>, con l'obiettivo dell'<strong>investment banking</strong> e dei <strong>mercati dei capitali</strong>.",
+  "about.now": "In questo momento",
+  "about.h1.t": "Focus",
+  "about.h1.d": "Investment banking, M&amp;A e mercati dei capitali",
+  "about.h2.t": "Strumenti",
+  "about.h2.d": "Modellazione finanziaria, analisi quantitativa, valutazione del rischio",
+  "about.h3.t": "Approccio",
+  "about.h3.d": "Basato sui dati, orientato ai risultati, a mio agio in team multiculturali",
+  "about.h4.t": "Side quest",
+  "about.h4.d": "Programmo in R, Python e HTML / CSS / JS — come questo sito",
   "edu.title": "Formazione",
   "edu.k.date": "Autunno 2026 · Varsavia 🇵🇱",
   "edu.k.role": "Semestre di scambio — #24 al mondo e #1 in Europa centro-orientale (FT 2026)",
@@ -43,11 +50,12 @@ const IT = {
   "exp.cfa.l3": "Report di equity research consegnato in team, con scadenze strette",
   "exp.rge.title": "Stagista in Amministrazione e Contabilità",
   "exp.rge.role": "RGE Associated · Agenzia assicurativa",
+  "exp.rge.desc": "Un anno di stage in <strong>R.G.E. Associated</strong>, agenzia assicurativa: contabilità e supporto alle attività quotidiane.",
   "exp.rge.l1": "Gestione della documentazione contabile, fatture e riconciliazioni",
   "exp.rge.l2": "Supporto nella preparazione dei report finanziari e nelle attività quotidiane",
   "exp.rge.l3": "Rispetto dei principi contabili e della normativa assicurativa",
   "proj.title": "Progetti",
-  "proj.rge.role": "Sito di R.G.E. Associated · Agenzia Generale Allianz &amp; Nobis",
+  "proj.rge.role": "Sito di R.G.E. Associated · Agenzia assicurativa",
   "proj.rge.desc": "Un tema WordPress su misura con le schede del personale e delle coperture, la sezione trasparenza IVASS, il badge degli orari in tempo reale e un <strong>simulatore della prova RUI</strong> con tutti i 1.758 quesiti ufficiali.",
   "proj.visit": "Visita il sito ↗",
   "proj.site.role": "Questo sito",
@@ -198,6 +206,27 @@ const tick = setInterval(() => {
   if (price >= target - 0.5) { price = target; clearInterval(tick); }
   priceEl.textContent = price.toFixed(2);
 }, 40);
+
+// ===== "Currently" typing line in About =====
+const NOW = {
+  en: ["studying M&A and alternative investments in Warsaw 🇵🇱", "building valuation models in Excel 📊", "learning Python for finance 🐍", "improving this website 👨‍💻"],
+  it: ["studio M&A e investimenti alternativi a Varsavia 🇵🇱", "costruisco modelli di valutazione in Excel 📊", "imparo Python per la finanza 🐍", "miglioro questo sito 👨‍💻"],
+};
+const typedEl = $("#typed");
+let nowIdx = 0, charIdx = 0, deleting = false, typedLang = lang;
+function typeLoop() {
+  if (typedLang !== lang) { typedLang = lang; charIdx = 0; deleting = false; }
+  const phrases = NOW[lang];
+  const text = [...phrases[nowIdx % phrases.length]];
+  charIdx += deleting ? -1 : 1;
+  typedEl.textContent = text.slice(0, charIdx).join("");
+  let delay = deleting ? 25 : 55;
+  if (!deleting && charIdx >= text.length) { deleting = true; delay = 1800; }
+  else if (deleting && charIdx <= 0) { deleting = false; nowIdx++; delay = 300; }
+  setTimeout(typeLoop, delay);
+}
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) typedEl.textContent = NOW[lang][0];
+else typeLoop();
 
 // ===== Count-up stats & skill bars on scroll =====
 function countUp(el) {

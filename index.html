@@ -57,7 +57,7 @@
         <div class="chart__head">
           <div>
             <span class="chart__sym">LRNZ</span>
-            <span class="chart__name" data-i18n="chart.name">Lorenzo Ferraioli Inc. · Borsa della Vita</span>
+            <span class="chart__name" data-i18n="chart.name">Lorenzo Ferraioli Inc. · Life Stock Exchange</span>
           </div>
           <div class="chart__price">
             <span class="mono" id="price">0.00</span>
@@ -85,16 +85,26 @@
       <div class="stat"><span class="stat__num mono" data-count="3">0</span><span class="stat__label" data-i18n="stats.cities">cities I've studied in: Rome, Milan, Warsaw</span></div>
       <div class="stat"><span class="stat__num mono" data-count="110" data-suffix="L">0</span><span class="stat__label" data-i18n="stats.bsc">B.Sc. final grade, cum laude</span></div>
       <div class="stat"><span class="stat__num mono" data-count="10" data-suffix="+">0</span><span class="stat__label" data-i18n="stats.fs">financial statements analysed for the CFA Challenge</span></div>
-      <div class="stat"><span class="stat__num mono" data-count="14">0</span><span class="stat__label" data-i18n="stats.scout">years as a scout ⛺</span></div>
     </section>
 
     <!-- About -->
     <section id="about" class="section">
       <h2 class="section__title"><span class="mono">01</span> <span data-i18n="about.title">About me</span></h2>
       <div class="about">
-        <p data-i18n="about.p1">I'm a Master's student in Finance at the <strong>Catholic University of the Sacred Heart</strong> in Milan, currently spending an exchange semester at <strong>Kozminski University</strong> in Warsaw. I'm strongly interested in <strong>investment banking and capital markets</strong>.</p>
-        <p data-i18n="about.p2">I've built solid skills in financial modeling, quantitative analysis and risk assessment, and I like a data-driven approach to complex problems. Fluent in Italian and English, I thrive in dynamic, multicultural environments — and I'm ready to grow within the financial industry.</p>
-        <p data-i18n="about.p3">On the side I tinker with code: HTML, CSS and JavaScript (this very site 👋), plus R and Python for data.</p>
+        <figure class="about__photo">
+          <img src="portrait.jpg" alt="Portrait of Lorenzo Ferraioli" width="480" height="600" loading="lazy" />
+          <figcaption class="about__badge"><span class="pulse"></span> <span data-i18n="about.badge">Now in Warsaw 🇵🇱</span></figcaption>
+        </figure>
+        <div class="about__body">
+          <p class="about__lead" data-i18n="about.lead">Finance student between <strong>Milan</strong> and <strong>Warsaw</strong>, aiming for <strong>investment banking</strong> and <strong>capital markets</strong>.</p>
+          <p class="about__now"><span data-i18n="about.now">Currently</span> <span class="typed mono" id="typed"></span><span class="caret" aria-hidden="true">▍</span></p>
+          <div class="highlights">
+            <div class="hl card"><span class="hl__icon">📈</span><div><b data-i18n="about.h1.t">Focus</b><p data-i18n="about.h1.d">Investment banking, M&amp;A and capital markets</p></div></div>
+            <div class="hl card"><span class="hl__icon">🧮</span><div><b data-i18n="about.h2.t">Toolkit</b><p data-i18n="about.h2.d">Financial modeling, quantitative analysis, risk assessment</p></div></div>
+            <div class="hl card"><span class="hl__icon">🌍</span><div><b data-i18n="about.h3.t">Mindset</b><p data-i18n="about.h3.d">Data-driven, results-oriented, at home in multicultural teams</p></div></div>
+            <div class="hl card"><span class="hl__icon">💻</span><div><b data-i18n="about.h4.t">Side quest</b><p data-i18n="about.h4.d">Coding with R, Python and HTML / CSS / JS — like this site</p></div></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -155,6 +165,7 @@
           <div class="tl__meta mono">Sep 2022 – Sep 2023 · Salerno</div>
           <h3 data-i18n="exp.rge.title">Administration &amp; Accounting Intern</h3>
           <p class="tl__role" data-i18n="exp.rge.role">RGE Associated · Insurance Agency</p>
+          <p data-i18n="exp.rge.desc">One-year internship at <strong>R.G.E. Associated</strong>, an insurance agency: bookkeeping and support to daily operations.</p>
           <ul class="checks">
             <li data-i18n="exp.rge.l1">Managed financial records, processed invoices and reconciled accounts</li>
             <li data-i18n="exp.rge.l2">Helped prepare financial reports and supported daily operations</li>
@@ -171,7 +182,7 @@
         <article class="card exp">
           <div class="tl__meta mono">2026 · Angri (SA)</div>
           <h3>🛡️ rgeassociated.it</h3>
-          <p class="tl__role" data-i18n="proj.rge.role">Website for R.G.E. Associated · Allianz &amp; Nobis general agency</p>
+          <p class="tl__role" data-i18n="proj.rge.role">Website for R.G.E. Associated · Insurance agency</p>
           <p data-i18n="proj.rge.desc">A custom WordPress theme with staff and coverage pages, an IVASS transparency section, a live opening-hours badge and an <strong>exam simulator for the RUI test</strong> with all 1,758 official questions.</p>
           <ul class="tags tags--plain"><li>WordPress</li><li>PHP</li><li>JavaScript</li><li>SEO</li></ul>
           <div class="hero__cta"><a class="btn btn--accent" href="https://www.rgeassociated.it" target="_blank" rel="noopener" data-i18n="proj.visit">Visit the site ↗</a></div>
