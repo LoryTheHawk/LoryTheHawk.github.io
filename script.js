@@ -19,7 +19,7 @@ const IT = {
   "hero.eyebrow": "📍 Milano → ora a Varsavia 🇵🇱",
   "hero.lead": "Studente della Laurea Magistrale in Banking &amp; Finance all'<strong>Università Cattolica di Milano</strong>, in Erasmus alla <strong>Kozminski University</strong>. Appassionato di investment banking, mercati dei capitali e di tutto ciò che un buon modello può spiegare.",
   "hero.cta1": "Contattami",
-  "chart.name": "Lorenzo Ferraioli S.p.A. · Borsa della Vita",
+  "chart.name": "Lorenzo Ferraioli S.p.A.<br />Borsa della Vita",
   "chart.hint": "Passa sui punti per vedere le tappe 👆",
   "stats.cities": "città in cui ho studiato: Roma, Milano, Varsavia",
   "stats.bsc": "voto di laurea triennale, con lode",
