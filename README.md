@@ -1,6 +1,6 @@
 # 🦅 lorythehawk.github.io
 
-Personal website of **Lorenzo Ferraioli** — M.Sc. Banking & Finance student at UCSC Milan, on exchange at Kozminski University, Warsaw.
+Personal website of **Lorenzo Ferraioli**, M.Sc. Banking & Finance student at UCSC Milan, on exchange at Kozminski University, Warsaw.
 
 👉 **Live:** https://lorythehawk.github.io
 
@@ -14,7 +14,7 @@ Personal website of **Lorenzo Ferraioli** — M.Sc. Banking & Finance student at
 
 ## 🛠️ Built with
 
-Plain **HTML, CSS and JavaScript** — no frameworks, no build step. Hosted for free on **GitHub Pages**.
+Plain **HTML, CSS and JavaScript**: no frameworks, no build step. Hosted for free on **GitHub Pages**.
 
 ```
 index.html   → content (English)

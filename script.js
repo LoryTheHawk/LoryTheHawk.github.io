@@ -35,10 +35,10 @@ const IT = {
   "about.h3.t": "Approccio",
   "about.h3.d": "Basato sui dati, orientato ai risultati, a mio agio in team multiculturali",
   "about.h4.t": "Side quest",
-  "about.h4.d": "Programmo in R, Python e HTML / CSS / JS — come questo sito",
+  "about.h4.d": "Programmo in R, Python e HTML / CSS / JS, come questo sito",
   "edu.title": "Formazione",
   "edu.k.date": "Autunno 2026 · Varsavia 🇵🇱",
-  "edu.k.role": "Semestre di scambio — #24 al mondo e #1 in Europa centro-orientale (FT 2026)",
+  "edu.k.role": "Semestre di scambio · #24 al mondo e #1 in Europa centro-orientale (FT 2026)",
   "edu.k.desc": "Percorso CFA: Portfolio Management, Alternative Investments, M&amp;A e Advanced Risk Management.",
   "edu.u.date": "2025 – 2027 · Milano 🇮🇹",
   "edu.u.role": "Laurea Magistrale in Banking and Finance",
@@ -91,7 +91,7 @@ const IT = {
   "int.f3": "✈️ Roma, Milano, Varsavia… il mio portafoglio di città è ben diversificato.",
   "int.f4": "🍝 Da buon campano: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
-  "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa — e sono sempre pronto per una bella chiacchierata sui mercati.",
+  "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa. E sono sempre pronto per una bella chiacchierata sui mercati.",
 };
 
 const EN_FACTS = {
