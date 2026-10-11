@@ -44,7 +44,8 @@ const IT = {
   "edu.u.role": "Laurea Magistrale in Banking and Finance",
   "edu.s.date": "2022 – 2025 · Roma 🇮🇹",
   "edu.s.role": "Laurea Triennale in Banca, Assicurazioni e Mercati Finanziari · 110/110 e lode",
-  "edu.s.thesis": "🎓 Tesi: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em>",
+  "edu.s.thesis": "🎓 Tesi: <em>“Catastrofi naturali, finanza e assicurazione: il ruolo dei Cat Bond nel nuovo contesto normativo italiano”</em>",
+  "edu.s.read": "📖 Leggi l'estratto",
   "exp.title": "Esperienze",
   "exp.cfa.desc": "Equity research approfondita su <strong>Industrie De Nora S.p.A.</strong>, quotata alla Borsa Italiana.",
   "exp.cfa.l1": "Analizzati oltre 10 bilanci, trend di settore e posizionamento competitivo",
@@ -278,6 +279,14 @@ $$(".interest").forEach((card) => {
     $$(".interest").forEach((c) => c.classList.toggle("is-active", c === card));
     $("#fact").textContent = t(card.dataset.fact);
   });
+});
+
+// ===== Thesis extract dialog =====
+const thesis = $("#thesis");
+$("[data-open-thesis]").addEventListener("click", () => thesis.showModal());
+thesis.addEventListener("click", (e) => {
+  // close on the ✕ button or on a click on the backdrop
+  if (e.target.closest("[data-close]") || e.target === thesis) thesis.close();
 });
 
 // ===== Easter egg: click the logo and the hawk flies =====

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
   <!-- Ticker tape -->
@@ -143,6 +143,7 @@
             <li>Monetary Policy</li>
           </ul>
           <p class="tl__thesis" data-i18n="edu.s.thesis">🎓 Thesis: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em></p>
+          <button class="btn btn--small" type="button" data-open-thesis data-i18n="edu.s.read">📖 Read the extract</button>
         </li>
       </ol>
     </section>
@@ -281,7 +282,86 @@
     <p>© <span id="year"></span> Lorenzo Ferraioli</p>
   </footer>
 
+  <!-- Thesis extract -->
+  <dialog class="thesis" id="thesis" aria-labelledby="thesis-title">
+    <button class="thesis__close pill" type="button" data-close aria-label="Close">✕</button>
+
+    <div class="only-en">
+      <p class="tl__meta mono">B.Sc. thesis · Sapienza University of Rome · October 2025</p>
+      <h2 id="thesis-title">Natural catastrophes, finance and insurance: the role of Cat Bonds in Italy's new regulatory framework</h2>
+      <p class="thesis__sub">Original title: <em>“Catastrofi naturali, finanza e assicurazione: il ruolo dei Cat Bond nel nuovo contesto normativo italiano”</em>. Supervisor: Prof. Fabrizio Santoboni. Final grade: 110/110 cum laude.</p>
+
+      <h3>Abstract</h3>
+      <p>Natural catastrophes are low-frequency, high-severity events, and Italy is among the most exposed countries in Europe to earthquakes, floods and landslides. Yet it is also one of the most underinsured. The 2024 Budget Law introduced, for the first time in Europe, a <strong>mandatory “Cat Nat” cover</strong> for all Italian businesses, with a matching obligation for insurers to offer it.</p>
+      <p>The thesis analyses this new framework (Law 213/2023 and Ministerial Decree 18/2025) and the role that <strong>catastrophe bonds</strong> can play next to traditional reinsurance: by securitising catastrophe risk, they move it to the capital markets, expand underwriting capacity, stabilise the cost of protection and attract investors looking for returns uncorrelated with traditional asset classes.</p>
+
+      <h3>Key numbers</h3>
+    </div>
+    <div class="only-it">
+      <p class="tl__meta mono">Tesi di laurea triennale · Sapienza Università di Roma · ottobre 2025</p>
+      <h2>Catastrofi naturali, finanza e assicurazione: il ruolo dei Cat Bond nel nuovo contesto normativo italiano</h2>
+      <p class="thesis__sub">Relatore: Prof. Fabrizio Santoboni. Voto di laurea: 110/110 e lode.</p>
+
+      <h3>Abstract</h3>
+      <p>Le catastrofi naturali sono eventi a bassa frequenza ed elevata significatività e l'Italia è tra i paesi europei più esposti a terremoti, alluvioni e frane. Eppure è anche tra i meno assicurati. La Legge di Bilancio 2024 ha introdotto, per la prima volta in Europa, l'<strong>obbligo assicurativo “Cat Nat”</strong> per tutte le imprese italiane, con il corrispondente obbligo a contrarre per le compagnie.</p>
+      <p>La tesi analizza il nuovo quadro normativo (Legge 213/2023 e D.M. 18/2025) e il ruolo che i <strong>Catastrophe Bond</strong> possono avere accanto alla riassicurazione tradizionale: grazie alla cartolarizzazione trasferiscono il rischio catastrofale al mercato dei capitali, ampliano la capacità assuntiva, stabilizzano i costi di protezione e attraggono capitali in cerca di rendimenti non correlati con le asset class tradizionali.</p>
+
+      <h3>I numeri chiave</h3>
+    </div>
+
+    <dl class="thesis__kpis">
+      <div><dd class="mono">57%</dd><dt><span class="only-en">global protection gap in 2024 ($317bn losses, $137bn insured)</span><span class="only-it">protection gap mondiale nel 2024 (317 mld $ di perdite, 137 mld assicurati)</span></dt></div>
+      <div><dd class="mono">78%</dd><dt><span class="only-en">protection gap in Italy</span><span class="only-it">protection gap in Italia</span></dt></div>
+      <div><dd class="mono">5%</dd><dt><span class="only-en">of Italian businesses insured against natural catastrophes</span><span class="only-it">delle imprese italiane assicurate contro le catastrofi naturali</span></dt></div>
+      <div><dd class="mono">$17.6bn</dd><dt><span class="only-en">cat bonds issued in H1 2025, almost the whole record year 2024 ($17.7bn)</span><span class="only-it">di Cat Bond emessi nel primo semestre 2025, quasi quanto l'intero anno record 2024 (17,7 mld)</span></dt></div>
+    </dl>
+
+    <div class="only-en"><h3>Two Italian case studies</h3></div>
+    <div class="only-it"><h3>Due casi italiani</h3></div>
+    <div class="thesis__cases">
+      <article class="card">
+        <p class="tl__meta mono">UnipolSai · 2024</p>
+        <h4>Azzurro Re II DAC 2024-1</h4>
+        <ul class="only-en">
+          <li><b>€100m</b>, European earthquake (mainly Italian portfolio)</li>
+          <li>Indemnity trigger, layer from €250m to €350m of losses</li>
+          <li>4 years, to April 2028 · expected loss 2.46% · coupon 5.75–6.5%</li>
+        </ul>
+        <ul class="only-it">
+          <li><b>100 mln €</b>, terremoto europeo (portafoglio prevalentemente italiano)</li>
+          <li>Trigger indemnity, strato tra 250 e 350 mln € di perdite</li>
+          <li>4 anni, fino ad aprile 2028 · perdita attesa 2,46% · cedola 5,75–6,5%</li>
+        </ul>
+      </article>
+      <article class="card">
+        <p class="tl__meta mono">Generali · 2025</p>
+        <h4>Lion Re DAC 2025-1</h4>
+        <ul class="only-en">
+          <li><b>€200m</b> “green” bond in two tranches: European windstorms + Italian earthquakes (€125m, 5.5%) and Italian earthquakes only (€75m, 6%)</li>
+          <li><b>€28.1m</b> Solvency II capital relief (SCR)</li>
+          <li>Proceeds invested in AAA green bonds issued by the EBRD · 4 years, to June 2029</li>
+        </ul>
+        <ul class="only-it">
+          <li><b>200 mln €</b> “green” in due tranche: tempeste europee + sismi italiani (125 mln, 5,5%) e soli sismi italiani (75 mln, 6%)</li>
+          <li><b>28,1 mln €</b> di beneficio di capitale (SCR, Solvency II)</li>
+          <li>Proventi investiti in green bond AAA della BERS · 4 anni, fino a giugno 2029</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="only-en">
+      <h3>Conclusion</h3>
+      <p>Cat bonds can effectively <strong>complement, not necessarily replace</strong>, traditional reinsurance: they give insurers more underwriting capacity and investors strong diversification. Their spread is still held back by high transaction costs and a narrow, mostly institutional investor base. Wider liquidity, more investors and European public-private schemes could turn a legal obligation into a strategic opportunity, making Italian businesses more resilient and reducing the protection gap and the cost of public intervention.</p>
+      <p class="thesis__toc"><b>Contents:</b> 1. Theoretical and regulatory framework of “Cat Nat” risk · 2. Catastrophe risk management in insurance companies: reinsurance, Alternative Risk Transfer and ILS, the UnipolSai and Generali cases, outlook for cat bonds in Italy.</p>
+    </div>
+    <div class="only-it">
+      <h3>Conclusione</h3>
+      <p>I Cat Bond possono <strong>integrare, ma non per forza sostituire</strong>, la riassicurazione tradizionale: offrono alle compagnie maggiore capacità assuntiva e agli investitori una forte diversificazione. La loro diffusione è però frenata da costi di transazione elevati e da una base di investitori ristretta e prevalentemente istituzionale. Maggiore liquidità, nuovi investitori e strumenti pubblico-privati europei potranno trasformare un obbligo in un'opportunità strategica, rendendo le imprese italiane più resilienti e riducendo il protection gap e il costo degli interventi pubblici.</p>
+      <p class="thesis__toc"><b>Indice:</b> 1. Inquadramento teorico e quadro regolamentare “Cat Nat” · 2. Gestione del rischio catastrofale nelle imprese di assicurazione: riassicurazione, Alternative Risk Transfer e ILS, i casi UnipolSai e Generali, prospettive per i Cat Bond in Italia.</p>
+    </div>
+  </dialog>
+
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
