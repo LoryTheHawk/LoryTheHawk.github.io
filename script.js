@@ -14,6 +14,7 @@ const IT = {
   "nav.skills": "Competenze",
   "nav.projects": "Progetti",
   "nav.contact": "Contatti",
+  "hero.hiring": "Cerco uno <b>stage</b> in investment banking e mercati dei capitali",
   "hero.eyebrow": "📍 Milano → ora a Varsavia 🇵🇱",
   "hero.lead": "Studente della Laurea Magistrale in Banking &amp; Finance all'<strong>Università Cattolica di Milano</strong>, in Erasmus alla <strong>Kozminski University</strong>. Appassionato di investment banking, mercati dei capitali e di tutto ciò che un buon modello può spiegare.",
   "hero.cta1": "Contattami",
@@ -78,7 +79,7 @@ const IT = {
   "int.f3": "✈️ Roma, Milano, Varsavia… il mio portafoglio di città è ben diversificato.",
   "int.f4": "🍝 Da buon campano: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
-  "contact.text": "Aperto a stage, progetti e a una bella chiacchierata sui mercati.",
+  "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali — e sono sempre pronto per una bella chiacchierata sui mercati.",
   "footer": "Fatto a mano con HTML, CSS e JS — nessun falco è stato maltrattato.",
 };
 
