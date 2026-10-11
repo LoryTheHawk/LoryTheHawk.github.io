@@ -417,10 +417,6 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
   .thesis__close { width: 44px; height: 44px; }
   .thesis h3 { margin-top: 1.5rem; }
   .thesis__kpis dd { font-size: 1.4rem; }
-  /* thesis callout on the Sapienza card */
-  .thesis-cta { margin-top: 1rem; padding: 1rem; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
-  .thesis-cta .tl__thesis { margin: 0; font-size: 0.95rem; }
-  .thesis-cta .btn--small { display: block; width: 100%; margin-top: 0.9rem; padding: 0.8rem 1rem; font-size: 1rem; background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 }
 
 /* ---------- Reveal on scroll ---------- */
