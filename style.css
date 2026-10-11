@@ -5,8 +5,10 @@
   --line: rgba(224, 225, 221, 0.12);
   --text: #e0e1dd;
   --muted: #8d99ae;
-  --gold: #d4a017;
-  --gold-soft: rgba(212, 160, 23, 0.14);
+  --accent: #f05454;
+  --accent-2: #ff8a7a;
+  --accent-soft: rgba(240, 84, 84, 0.14);
+  --on-accent: #0d1b2a;
   --up: #3ddc84;
   --down: #ff6b6b;
   --radius: 16px;
@@ -15,17 +17,19 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f7f4ec;
-  --bg-2: #ece6d6;
-  --card: rgba(255, 255, 255, 0.75);
+  --bg: #fcfcfb;
+  --bg-2: #f3f2f0;
+  --card: #ffffff;
   --line: rgba(13, 27, 42, 0.12);
   --text: #0d1b2a;
   --muted: #5c677d;
-  --gold: #a87b00;
-  --gold-soft: rgba(168, 123, 0, 0.12);
+  --accent: #c0262d;
+  --accent-2: #e2574c;
+  --accent-soft: rgba(192, 38, 45, 0.07);
+  --on-accent: #ffffff;
   --up: #148a4a;
   --down: #c0392b;
-  --shadow: 0 10px 30px rgba(13, 27, 42, 0.08);
+  --shadow: 0 6px 24px rgba(13, 27, 42, 0.05);
   color-scheme: light;
 }
 
@@ -37,7 +41,7 @@ body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
   background:
-    radial-gradient(1200px 600px at 85% -10%, var(--gold-soft), transparent 60%),
+    radial-gradient(1200px 600px at 85% -10%, var(--accent-soft), transparent 60%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -45,7 +49,7 @@ body {
 }
 
 a { color: inherit; }
-strong { color: var(--gold); font-weight: 600; }
+strong { color: var(--accent); font-weight: 600; }
 .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
 /* ---------- Ticker ---------- */
@@ -86,7 +90,7 @@ strong { color: var(--gold); font-weight: 600; }
   text-decoration: none;
   cursor: pointer;
 }
-.nav__logo span { color: var(--gold); }
+.nav__logo span { color: var(--accent); }
 .nav__links { display: flex; gap: 1.5rem; }
 .nav__links a {
   text-decoration: none;
@@ -94,7 +98,7 @@ strong { color: var(--gold); font-weight: 600; }
   font-size: 0.92rem;
   transition: color 0.2s;
 }
-.nav__links a:hover { color: var(--gold); }
+.nav__links a:hover { color: var(--accent); }
 .nav__tools { display: flex; gap: 0.5rem; }
 .pill {
   border: 1px solid var(--line);
@@ -105,7 +109,7 @@ strong { color: var(--gold); font-weight: 600; }
   font: 600 0.8rem "Inter", sans-serif;
   cursor: pointer;
 }
-.pill:hover { border-color: var(--gold); }
+.pill:hover { border-color: var(--accent); }
 
 main { padding: 0 clamp(16px, 5vw, 64px); max-width: 1180px; margin: 0 auto; }
 
@@ -123,7 +127,7 @@ h1 {
   margin: 0 0 1.4rem;
   letter-spacing: -0.02em;
 }
-h1 em { color: var(--gold); font-style: italic; }
+h1 em { color: var(--accent); font-style: italic; }
 .hero__lead { font-size: 1.12rem; max-width: 34rem; color: var(--text); opacity: 0.9; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
 
@@ -136,8 +140,8 @@ h1 em { color: var(--gold); font-style: italic; }
   font-weight: 600;
   transition: transform 0.15s, border-color 0.15s, background 0.15s;
 }
-.btn:hover { transform: translateY(-2px); border-color: var(--gold); }
-.btn--gold { background: var(--gold); color: #0d1b2a; border-color: var(--gold); }
+.btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.btn--accent { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
 .card {
   background: var(--card);
@@ -149,7 +153,7 @@ h1 em { color: var(--gold); font-style: italic; }
 /* ---------- Chart ---------- */
 .chart { margin: 0; padding: 1.2rem 1.2rem 0.9rem; }
 .chart__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-.chart__sym { font: 700 1.1rem "JetBrains Mono", monospace; color: var(--gold); margin-right: 0.5rem; }
+.chart__sym { font: 700 1.1rem "JetBrains Mono", monospace; color: var(--accent); margin-right: 0.5rem; }
 .chart__name { color: var(--muted); font-size: 0.82rem; display: block; }
 .chart__price { text-align: right; display: flex; flex-direction: column; font-size: 1.1rem; }
 .chart__price .up { font-size: 0.8rem; }
@@ -160,10 +164,10 @@ h1 em { color: var(--gold); font-style: italic; }
 #area { opacity: 0; animation: fade 1s 1.8s forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes fade { to { opacity: 1; } }
-.dot { fill: var(--bg); stroke: var(--gold); stroke-width: 2.5; cursor: pointer; opacity: 0; animation: fade 0.4s forwards; transition: r 0.15s; }
+.dot { fill: var(--bg); stroke: var(--accent); stroke-width: 2.5; cursor: pointer; opacity: 0; animation: fade 0.4s forwards; transition: r 0.15s; }
 .dot:hover, .dot:focus { r: 8; outline: none; }
 .chart__tip { color: var(--muted); font-size: 0.86rem; min-height: 2.8em; margin-top: 0.4rem; }
-.chart__tip b { color: var(--gold); }
+.chart__tip b { color: var(--accent); }
 
 /* ---------- Stats ---------- */
 .stats {
@@ -175,7 +179,7 @@ h1 em { color: var(--gold); font-style: italic; }
   padding: 2rem 0;
 }
 .stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.stat__num { font-size: 2.2rem; color: var(--gold); }
+.stat__num { font-size: 2.2rem; color: var(--accent); }
 .stat__label { color: var(--muted); font-size: 0.88rem; }
 
 /* ---------- Sections ---------- */
@@ -187,7 +191,7 @@ h1 em { color: var(--gold); font-style: italic; }
   align-items: baseline;
   gap: 0.8rem;
 }
-.section__title .mono { font-size: 0.9rem; color: var(--gold); }
+.section__title .mono { font-size: 0.9rem; color: var(--accent); }
 h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .about { columns: 2 22rem; column-gap: 2.5rem; font-size: 1.05rem; }
 .about p { margin-top: 0; break-inside: avoid; }
@@ -203,23 +207,23 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
   height: 14px;
   border-radius: 50%;
   background: var(--bg);
-  border: 3px solid var(--gold);
+  border: 3px solid var(--accent);
 }
-.tl__meta { color: var(--gold); font-size: 0.8rem; }
+.tl__meta { color: var(--accent); font-size: 0.8rem; }
 .tl__role { color: var(--muted); margin: 0 0 0.7rem; }
 .tl__thesis { margin: 0.9rem 0 0; }
 .tl p:last-child { margin-bottom: 0; }
 
 .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tags li { font-size: 0.85rem; padding: 0.3rem 0.7rem; border-radius: 999px; background: var(--gold-soft); border: 1px solid var(--line); }
-.tags b { color: var(--gold); font-family: "JetBrains Mono", monospace; margin-left: 0.25rem; }
+.tags li { font-size: 0.85rem; padding: 0.3rem 0.7rem; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--line); }
+.tags b { color: var(--accent); font-family: "JetBrains Mono", monospace; margin-left: 0.25rem; }
 
 .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .grid2 > .card, .grid3 > .card { padding: 1.4rem; }
 .grid3 h3 { margin-bottom: 1rem; }
 .exp { transition: transform 0.2s, border-color 0.2s; }
-.exp:hover { transform: translateY(-4px); border-color: var(--gold); }
+.exp:hover { transform: translateY(-4px); border-color: var(--accent); }
 .checks { padding: 0; margin: 0; list-style: none; display: grid; gap: 0.45rem; }
 .checks li { padding-left: 1.5rem; position: relative; }
 .checks li::before { content: "▲"; color: var(--up); position: absolute; left: 0; font-size: 0.75rem; top: 0.25rem; }
@@ -232,14 +236,14 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
   position: absolute;
   inset: 0;
   width: var(--w, 0%);
-  background: linear-gradient(90deg, var(--gold), #f3c94b);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   border-radius: inherit;
   transition: width 1.2s cubic-bezier(.2, .8, .2, 1);
 }
 
 .langs { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
 .langs li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--line); padding-bottom: 0.5rem; }
-.langs b { color: var(--gold); font-weight: 600; text-align: right; }
+.langs b { color: var(--accent); font-weight: 600; text-align: right; }
 
 .interests { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .interest {
@@ -254,7 +258,7 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
   transition: transform 0.2s, border-color 0.2s;
 }
 .interest span { font-size: 2.4rem; transition: transform 0.3s; }
-.interest:hover, .interest.is-active { border-color: var(--gold); transform: translateY(-4px); }
+.interest:hover, .interest.is-active { border-color: var(--accent); transform: translateY(-4px); }
 .interest:hover span { transform: rotate(-10deg) scale(1.15); }
 .fact { text-align: center; color: var(--muted); min-height: 3em; margin-top: 1.2rem; }
 
