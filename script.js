@@ -170,22 +170,22 @@ function drawChart() {
   const py = (y) => H - padB - (y / 100) * (H - padT - padB);
 
   // Add some deterministic "market noise" between milestones
-  const pts = [];
+  const vals = [];
   milestones.forEach((m, i) => {
-    pts.push([px(m.x), py(m.y)]);
+    vals.push([m.x, m.y]);
     const next = milestones[i + 1];
     if (!next) return;
     for (let s = 1; s < 6; s++) {
       const f = s / 6;
       const noise = Math.sin((i + 1) * 7.3 + s * 2.1) * 6;
-      pts.push([px(m.x + f), py(m.y + (next.y - m.y) * f + noise)]);
+      vals.push([m.x + f, m.y + (next.y - m.y) * f + noise]);
     }
   });
+  const pts = vals.map(([x, y]) => [px(x), py(y)]);
 
   const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
   const line = $("#line");
   line.setAttribute("d", d);
-  line.style.setProperty("--len", Math.ceil(line.getTotalLength()));
   $("#area").setAttribute("d", `${d} L${px(maxX)},${H - padB} L${px(0)},${H - padB} Z`);
 
   const years = ["2020", "2022", "2024", "2025", "2026", "→"];
@@ -194,7 +194,7 @@ function drawChart() {
     .join("") + years.map((yr, i) => `<text x="${px(i)}" y="${H - 4}" text-anchor="middle">${yr}</text>`).join("");
 
   $("#dots").innerHTML = milestones
-    .map((m, i) => `<circle class="dot" tabindex="0" r="5.5" cx="${px(m.x)}" cy="${py(m.y)}" data-i="${i}" style="animation-delay:${0.4 + i * 0.35}s" />`)
+    .map((m, i) => `<circle class="dot" tabindex="0" r="5.5" cx="${px(m.x)}" cy="${py(m.y)}" data-i="${i}" style="animation-delay:${(i / maxX) * DRAW_MS / 1000}s" />`)
     .join("");
 
   $$(".dot").forEach((dot) => {
@@ -206,18 +206,64 @@ function drawChart() {
     dot.addEventListener("focus", show);
     dot.addEventListener("click", show);
   });
-}
-drawChart();
 
-// Animated "share price"
-let price = 0;
-const target = 110.0;
-const priceEl = $("#price");
-const tick = setInterval(() => {
-  price += (target - price) * 0.08 + Math.random() * 0.6;
-  if (price >= target - 0.5) { price = target; clearInterval(tick); }
-  priceEl.textContent = price.toFixed(2);
-}, 40);
+  animateChart(pts, vals.map(([, y]) => y));
+}
+
+// Draw the line segment by segment: green while it rises, red while it falls,
+// with the "share price" following along. At the end it settles on the accent colour.
+function animateChart(pts, vals) {
+  const svg = $("#chart");
+  const segs = $("#segs");
+  const priceEl = $("#price");
+  const toPrice = (v) => (v * 1.1).toFixed(2);
+  const lines = pts.slice(1).map(([x2, y2], i) => {
+    const [x1, y1] = pts[i];
+    const el = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    el.style.visibility = "hidden";
+    el.setAttribute("class", vals[i + 1] >= vals[i] ? "up" : "down");
+    Object.entries({ x1, y1, x2: x1, y2: y1 }).forEach(([k, v]) => el.setAttribute(k, v));
+    segs.appendChild(el);
+    return el;
+  });
+
+  const finish = () => {
+    lines.forEach((el, i) => {
+      el.setAttribute("x2", pts[i + 1][0]);
+      el.setAttribute("y2", pts[i + 1][1]);
+      el.style.visibility = "visible";
+    });
+    priceEl.textContent = toPrice(vals[vals.length - 1]);
+    priceEl.classList.remove("up", "down");
+    svg.classList.add("is-done");
+  };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return finish();
+
+  const start = performance.now();
+  const frame = (now) => {
+    const pos = Math.min((now - start) / DRAW_MS, 1) * lines.length;
+    const i = Math.min(Math.floor(pos), lines.length - 1);
+    const f = pos - i;
+    lines.forEach((el, j) => {
+      const [x1, y1] = pts[j];
+      const [x2, y2] = pts[j + 1];
+      const k = j < i ? 1 : j === i ? f : 0;
+      el.setAttribute("x2", x1 + (x2 - x1) * k);
+      el.setAttribute("y2", y1 + (y2 - y1) * k);
+      el.style.visibility = k > 0 ? "visible" : "hidden";
+    });
+    const v = vals[i] + (vals[i + 1] - vals[i]) * f;
+    priceEl.textContent = toPrice(v);
+    priceEl.classList.toggle("up", vals[i + 1] >= vals[i]);
+    priceEl.classList.toggle("down", vals[i + 1] < vals[i]);
+    if (pos < lines.length) requestAnimationFrame(frame);
+    else setTimeout(finish, 250);
+  };
+  requestAnimationFrame(frame);
+}
+
+const DRAW_MS = 2600;
+drawChart();
 
 // ===== "Currently" typing line in About =====
 const NOW = {
