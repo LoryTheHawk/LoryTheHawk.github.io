@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
   <!-- Ticker tape -->
@@ -74,7 +74,6 @@
           </defs>
           <g id="grid"></g>
           <path id="area" fill="url(#fill)" />
-          <g id="segs"></g>
           <path id="line" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
           <g id="dots"></g>
         </svg>
@@ -180,7 +179,19 @@
     <!-- Projects -->
     <section id="projects" class="section">
       <h2 class="section__title"><span class="mono">04</span> <span data-i18n="proj.title">Projects</span></h2>
-      <div class="grid2">
+      <div class="grid3 projects">
+        <article class="card exp">
+          <div class="tl__meta mono">May 2025 · Rome</div>
+          <h3>📉 VaR &amp; Expected Shortfall</h3>
+          <p class="tl__role" data-i18n="proj.var.role">Market risk model · Sapienza University of Rome</p>
+          <p data-i18n="proj.var.desc">Estimated <strong>VaR and ES</strong> with historical, parametric and Monte Carlo methods. Built loss distributions for a multi-asset portfolio and assessed risk under regulatory standards (VaR breaches and Basel multipliers).</p>
+          <ul class="tags tags--plain"><li>Python</li><li>Monte Carlo</li><li>Risk Management</li><li>Basel</li></ul>
+          <dl class="kpis mono">
+            <div><dt>VaR 95%</dt><dd>$20,469</dd></div>
+            <div><dt>ES</dt><dd>$30,352</dd></div>
+            <div><dt data-i18n="proj.var.k3">Portfolio</dt><dd>$1M</dd></div>
+          </dl>
+        </article>
         <article class="card exp">
           <div class="tl__meta mono">2026 · Angri (SA)</div>
           <h3>🛡️ rgeassociated.it</h3>
@@ -271,6 +282,6 @@
   </footer>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>

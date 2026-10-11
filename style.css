@@ -183,14 +183,9 @@ h1 em { color: var(--accent); font-style: italic; }
 .chart__svg { width: 100%; height: auto; margin-top: 0.6rem; overflow: visible; }
 #grid line { stroke: var(--line); stroke-dasharray: 3 4; }
 #grid text { fill: var(--muted); font: 10px "JetBrains Mono", monospace; }
-#segs line { stroke-width: 2.5; stroke-linecap: round; transition: opacity 0.7s; }
-#segs .up { stroke: var(--up); }
-#segs .down { stroke: var(--down); }
-#line, #area { opacity: 0; transition: opacity 0.7s; }
-.is-done #line, .is-done #area { opacity: 1; }
-.is-done #segs line { opacity: 0; }
-#price.up { color: var(--up); }
-#price.down { color: var(--down); }
+#line { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 2.4s ease-out forwards; }
+#area { opacity: 0; animation: fade 1s 1.8s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes fade { to { opacity: 1; } }
 .dot { fill: var(--bg); stroke: var(--accent); stroke-width: 2.5; cursor: pointer; opacity: 0; animation: fade 0.4s forwards; transition: r 0.15s; }
 .dot:hover, .dot:focus { r: 8; outline: none; }
@@ -296,6 +291,11 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .exp { display: flex; flex-direction: column; }
 .exp .hero__cta { margin-top: 0; padding-top: 1.2rem; }
 .exp h3 { min-height: 1.5em; }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 0; padding-top: 1.55rem; }
+.kpis div { padding: 0.3rem 0.6rem; line-height: 1.35; border-radius: 10px; background: var(--accent-soft); }
+.kpis dt { font-size: 0.68rem; color: var(--muted); }
+.kpis dd { margin: 0.1rem 0 0; font-size: 0.95rem; color: var(--accent); }
+.projects h3 { font-size: 1.1rem; }
 .checks { padding: 0; margin: 0; list-style: none; display: grid; gap: 0.45rem; }
 .checks li { padding-left: 1.5rem; position: relative; }
 .checks li::before { content: "▲"; color: var(--up); position: absolute; left: 0; font-size: 0.75rem; top: 0.25rem; }
