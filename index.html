@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
 </head>
 <body>
   <!-- Ticker tape -->
@@ -142,8 +142,10 @@
             <li>Accounting &amp; Auditing</li>
             <li>Monetary Policy</li>
           </ul>
-          <p class="tl__thesis" data-i18n="edu.s.thesis">🎓 Thesis: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em></p>
-          <button class="btn btn--small" type="button" data-open-thesis data-i18n="edu.s.read">📖 Read the extract</button>
+          <div class="thesis-cta">
+            <p class="tl__thesis" data-i18n="edu.s.thesis">🎓 Thesis: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em></p>
+            <button class="btn btn--small" type="button" data-open-thesis data-i18n="edu.s.read">📖 Read the extract</button>
+          </div>
         </li>
       </ol>
     </section>
@@ -284,7 +286,10 @@
 
   <!-- Thesis extract -->
   <dialog class="thesis" id="thesis" aria-labelledby="thesis-title">
-    <button class="thesis__close pill" type="button" data-close aria-label="Close">✕</button>
+    <header class="thesis__bar">
+      <span class="mono"><span class="only-en">📖 Thesis extract</span><span class="only-it">📖 Estratto della tesi</span></span>
+      <button class="thesis__close" type="button" data-close aria-label="Close">✕</button>
+    </header>
 
     <div class="only-en">
       <p class="tl__meta mono">B.Sc. thesis · Sapienza University of Rome · October 2025</p>
@@ -359,9 +364,10 @@
       <p>I Cat Bond possono <strong>integrare, ma non per forza sostituire</strong>, la riassicurazione tradizionale: offrono alle compagnie maggiore capacità assuntiva e agli investitori una forte diversificazione. La loro diffusione è però frenata da costi di transazione elevati e da una base di investitori ristretta e prevalentemente istituzionale. Maggiore liquidità, nuovi investitori e strumenti pubblico-privati europei potranno trasformare un obbligo in un'opportunità strategica, rendendo le imprese italiane più resilienti e riducendo il protection gap e il costo degli interventi pubblici.</p>
       <p class="thesis__toc"><b>Indice:</b> 1. Inquadramento teorico e quadro regolamentare “Cat Nat” · 2. Gestione del rischio catastrofale nelle imprese di assicurazione: riassicurazione, Alternative Risk Transfer e ILS, i casi UnipolSai e Generali, prospettive per i Cat Bond in Italia.</p>
     </div>
+    <button class="btn btn--accent thesis__back" type="button" data-close><span class="only-en">← Back to the site</span><span class="only-it">← Torna al sito</span></button>
   </dialog>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
