@@ -86,11 +86,18 @@ strong { color: var(--accent); font-weight: 600; }
   border-bottom: 1px solid var(--line);
 }
 .nav__logo {
-  font: 700 1.2rem "Fraunces", serif;
-  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  flex-shrink: 0;
   cursor: pointer;
+  transition: transform 0.2s;
 }
-.nav__logo span { color: var(--accent); }
+.nav__logo:hover { transform: scale(1.08) rotate(-4deg); }
+.nav__logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .nav__links { display: flex; gap: 1.5rem; }
 .nav__links a {
   text-decoration: none;
