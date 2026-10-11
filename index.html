@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lorenzo Ferraioli</title>
+  <meta name="description" content="Lorenzo Ferraioli — M.Sc. Banking & Finance student at UCSC Milan, exchange semester at Kozminski University Warsaw. Investment banking, capital markets, valuation and risk." />
+  <meta property="og:title" content="Lorenzo Ferraioli — Banking & Finance" />
+  <meta property="og:description" content="Finance student with a data-driven approach. Valuation, capital markets, risk — and a bit of code." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lorythehawk.github.io/" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ticker tape -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="ticker"></div>
+  </div>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo" id="hawk" title="Click me!">🦅 <span>LF</span></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="pill" id="lang" type="button" aria-label="Switch language">IT</button>
+      <button class="pill" id="theme" type="button" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">📍 Milan → currently Warsaw 🇵🇱</p>
+        <h1>Lorenzo<br /><em>Ferraioli</em></h1>
+        <p class="hero__lead" data-i18n="hero.lead">M.Sc. Banking &amp; Finance student at <strong>UCSC Milan</strong>, on exchange at <strong>Kozminski University</strong>. Into investment banking, capital markets and anything a good model can explain.</p>
+        <div class="hero__cta">
+          <a class="btn btn--gold" href="#contact" data-i18n="hero.cta1">Get in touch</a>
+          <a class="btn" href="https://www.linkedin.com/in/lorenzoferraioli" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <figure class="chart card" aria-label="A playful stock chart of Lorenzo's career">
+        <div class="chart__head">
+          <div>
+            <span class="chart__sym">LRNZ</span>
+            <span class="chart__name" data-i18n="chart.name">Lorenzo Ferraioli Inc. · Borsa della Vita</span>
+          </div>
+          <div class="chart__price">
+            <span class="mono" id="price">0.00</span>
+            <span class="up mono">▲ +∞%</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 400 200" class="chart__svg" id="chart" role="img" aria-label="Career chart">
+          <defs>
+            <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="var(--gold)" stop-opacity=".35" />
+              <stop offset="100%" stop-color="var(--gold)" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <g id="grid"></g>
+          <path id="area" fill="url(#fill)" />
+          <path id="line" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+          <g id="dots"></g>
+        </svg>
+        <figcaption class="chart__tip" id="tip" data-i18n="chart.hint">Hover the dots to see the milestones 👆</figcaption>
+      </figure>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" aria-label="Key numbers">
+      <div class="stat"><span class="stat__num mono" data-count="3">0</span><span class="stat__label" data-i18n="stats.cities">cities I've studied in: Rome, Milan, Warsaw</span></div>
+      <div class="stat"><span class="stat__num mono" data-count="110" data-suffix="L">0</span><span class="stat__label" data-i18n="stats.bsc">B.Sc. final grade, cum laude</span></div>
+      <div class="stat"><span class="stat__num mono" data-count="10" data-suffix="+">0</span><span class="stat__label" data-i18n="stats.fs">financial statements analysed for the CFA Challenge</span></div>
+      <div class="stat"><span class="stat__num mono" data-count="14">0</span><span class="stat__label" data-i18n="stats.scout">years as a scout ⛺</span></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2 class="section__title"><span class="mono">01</span> <span data-i18n="about.title">About me</span></h2>
+      <div class="about">
+        <p data-i18n="about.p1">I'm a Master's student in Finance at the <strong>Catholic University of the Sacred Heart</strong> in Milan, currently spending an exchange semester at <strong>Kozminski University</strong> in Warsaw. I'm strongly interested in <strong>investment banking and capital markets</strong>.</p>
+        <p data-i18n="about.p2">I've built solid skills in financial modeling, quantitative analysis and risk assessment, and I like a data-driven approach to complex problems. Fluent in Italian and English, I thrive in dynamic, multicultural environments — and I'm ready to grow within the financial industry.</p>
+        <p data-i18n="about.p3">On the side I tinker with code: HTML, CSS and JavaScript (this very site 👋), plus R and Python for data.</p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <h2 class="section__title"><span class="mono">02</span> <span data-i18n="edu.title">Education</span></h2>
+      <ol class="timeline">
+        <li class="card tl">
+          <div class="tl__meta mono" data-i18n="edu.k.date">Fall 2026 · Warsaw 🇵🇱</div>
+          <h3>Kozminski University</h3>
+          <p class="tl__role" data-i18n="edu.k.role">Exchange Semester — #24 globally and #1 in CEE (FT 2026)</p>
+          <p data-i18n="edu.k.desc">CFA track: Portfolio Management, Alternative Investments, M&amp;A and Advanced Risk Management.</p>
+        </li>
+        <li class="card tl">
+          <div class="tl__meta mono" data-i18n="edu.u.date">2025 – 2027 · Milan 🇮🇹</div>
+          <h3>Catholic University of the Sacred Heart (UCSC)</h3>
+          <p class="tl__role" data-i18n="edu.u.role">M.Sc. in Banking and Finance</p>
+          <ul class="tags">
+            <li>Advanced Corporate Finance</li>
+            <li>Derivative Securities Pricing</li>
+            <li>Applied Econometrics</li>
+            <li>Applied Statistics for Finance</li>
+          </ul>
+        </li>
+        <li class="card tl">
+          <div class="tl__meta mono" data-i18n="edu.s.date">2022 – 2025 · Rome 🇮🇹</div>
+          <h3>University of Rome “La Sapienza”</h3>
+          <p class="tl__role" data-i18n="edu.s.role">B.Sc. in Banking, Insurance and Financial Markets · 110/110 cum laude</p>
+          <ul class="tags">
+            <li>Corporate Finance</li>
+            <li>Life/Non-life Insurance</li>
+            <li>Risk Management</li>
+            <li>Securities Markets</li>
+            <li>Accounting &amp; Auditing</li>
+            <li>Monetary Policy</li>
+          </ul>
+          <p class="tl__thesis" data-i18n="edu.s.thesis">🎓 Thesis: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em></p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <h2 class="section__title"><span class="mono">03</span> <span data-i18n="exp.title">Experience</span></h2>
+      <div class="grid2">
+        <article class="card exp">
+          <div class="tl__meta mono">Nov 2024 – Feb 2025 · Rome / Milan</div>
+          <h3>Equity Research — CFA Research Challenge 2025</h3>
+          <p class="tl__role">CFA Society Italy · Sapienza team</p>
+          <p data-i18n="exp.cfa.desc">In-depth equity research on <strong>Industrie De Nora S.p.A.</strong>, listed on the Italian Stock Exchange.</p>
+          <ul class="checks">
+            <li data-i18n="exp.cfa.l1">Analysed 10+ financial statements, industry trends and competitive positioning</li>
+            <li data-i18n="exp.cfa.l2">Valuation with DCF, trading comparables and precedent transactions</li>
+            <li data-i18n="exp.cfa.l3">Delivered an equity research report in a diverse team, under tight deadlines</li>
+          </ul>
+        </article>
+        <article class="card exp">
+          <div class="tl__meta mono">Sep 2022 – Sep 2023 · Salerno</div>
+          <h3 data-i18n="exp.rge.title">Administration &amp; Accounting Intern</h3>
+          <p class="tl__role" data-i18n="exp.rge.role">RGE Associated · Insurance Agency</p>
+          <ul class="checks">
+            <li data-i18n="exp.rge.l1">Managed financial records, processed invoices and reconciled accounts</li>
+            <li data-i18n="exp.rge.l2">Helped prepare financial reports and supported daily operations</li>
+            <li data-i18n="exp.rge.l3">Kept the agency compliant with accounting standards and insurance regulations</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <h2 class="section__title"><span class="mono">04</span> <span data-i18n="skills.title">Skills</span></h2>
+      <div class="grid3">
+        <div class="card">
+          <h3 data-i18n="skills.fin">📈 Finance</h3>
+          <ul class="tags tags--plain">
+            <li>DCF</li><li>Comparables</li><li>Precedent Transactions</li><li>Equity Research</li>
+            <li>Derivatives Pricing</li><li>Risk Management</li><li>Econometrics</li><li>Cat Bonds</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-i18n="skills.tech">💻 Tech</h3>
+          <div class="bars" id="bars">
+            <div class="bar" data-level="60"><span>Excel</span><i></i></div>
+            <div class="bar" data-level="60"><span>R</span><i></i></div>
+            <div class="bar" data-level="30"><span>Bloomberg</span><i></i></div>
+            <div class="bar" data-level="30"><span>Python</span><i></i></div>
+            <div class="bar" data-level="35"><span>HTML / CSS / JS</span><i></i></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="skills.lang">🗣️ Languages</h3>
+          <ul class="langs">
+            <li><span>🇮🇹 Italiano</span><b data-i18n="skills.native">Native</b></li>
+            <li><span>🇬🇧 English</span><b>C1</b></li>
+            <li><span>🇪🇸 Español</span><b data-i18n="skills.elem">Elementary</b></li>
+            <li><span>🇵🇱 Polski</span><b>Dzień dobry! 😅</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="section">
+      <h2 class="section__title"><span class="mono">05</span> <span data-i18n="int.title">Off the spreadsheet</span></h2>
+      <div class="interests">
+        <button class="interest card" type="button" data-fact="int.f1"><span>⛺</span><b data-i18n="int.scout">Scouting</b></button>
+        <button class="interest card" type="button" data-fact="int.f2"><span>⚽</span><b data-i18n="int.football">Football</b></button>
+        <button class="interest card" type="button" data-fact="int.f3"><span>✈️</span><b data-i18n="int.travel">Travelling</b></button>
+        <button class="interest card" type="button" data-fact="int.f4"><span>🍝</span><b data-i18n="int.cooking">Cooking</b></button>
+      </div>
+      <p class="fact" id="fact" aria-live="polite" data-i18n="int.hint">Tap a card for a fun fact 👆</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact card">
+      <h2 data-i18n="contact.title">Let's talk finance (or pasta) 🤝</h2>
+      <p data-i18n="contact.text">Open to internships, projects and a good conversation about markets.</p>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="mailto:lor.ferraioli@gmail.com">✉️ lor.ferraioli@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/lorenzoferraioli" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/LoryTheHawk" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Lorenzo Ferraioli · <span data-i18n="footer">Built by hand with HTML, CSS &amp; JS — no hawks were harmed.</span> 🦅</p>
+  </footer>
+
+  <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
+  <script src="script.js"></script>
+</body>
+</html>
