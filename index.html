@@ -389,9 +389,10 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 
 .footer { margin-top: 2rem; border-top: 1px solid var(--line); background: var(--bg-2); color: var(--muted); font-size: 0.88rem; }
 .footer__top, .footer__bottom { max-width: 1180px; margin: 0 auto; padding: 1.6rem clamp(16px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
-.footer__bottom { padding-top: 1rem; padding-bottom: 1.6rem; background: linear-gradient(var(--line), var(--line)) content-box top / 100% 1px no-repeat; }
+.footer__bottom { padding-top: 1.3rem; padding-bottom: 5.5rem; /* room for the floating button */ background: linear-gradient(var(--line), var(--line)) center top / calc(100% - 2 * clamp(16px, 5vw, 64px)) 1px no-repeat; }
 .footer__bottom p { margin: 0; }
-.btn--cv { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+.btn--cv { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 0.95rem; font-size: 0.82rem; line-height: 1; }
+.btn--cv svg { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .footer__bottom b { color: var(--up); font-weight: 500; white-space: nowrap; }
 .footer__id { display: flex; align-items: center; gap: 0.8rem; }
 .footer__id img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--accent); }
@@ -409,8 +410,8 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
   z-index: 20;
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--accent);
   color: var(--on-accent);
@@ -422,11 +423,10 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 }
 .to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 .to-top:hover { transform: translateY(-3px); }
-.to-top svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.to-top svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 640px) {
   .footer__top, .footer__bottom { flex-direction: column; text-align: center; }
   .footer__id { flex-direction: column; gap: 0.5rem; }
-  .footer__bottom { padding-bottom: 5.5rem; } /* room for the floating button */
 }
 
 /* ---------- Thesis extract ---------- */
@@ -572,7 +572,7 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav__tools">
-      <button class="pill" id="lang" type="button" aria-label="Switch language">IT</button>
+      <button class="pill" id="lang" type="button" title="Switch language / Cambia lingua">IT</button>
       <button class="pill" id="theme" type="button" aria-label="Toggle theme">☀️</button>
     </div>
   </header>
@@ -834,7 +834,7 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
     </div>
     <div class="footer__bottom">
       <p>© <span id="year"></span> Lorenzo Ferraioli · <span data-i18n="footer.close">LRNZ closed at <b class="mono">110.00 ▲</b> · Thanks for visiting 🦅</span></p>
-      <a class="btn btn--accent btn--cv" href="Lorenzo_Ferraioli_CV.pdf" download data-i18n="footer.cv">📄 Download CV</a>
+      <a class="btn btn--accent btn--cv" href="Lorenzo_Ferraioli_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="footer.cv">Download CV</span></a>
     </div>
   </footer>
 
@@ -924,6 +924,6 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
   </dialog>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=21" defer></script>
+  <script src="script.js?v=22" defer></script>
 </body>
 </html>
