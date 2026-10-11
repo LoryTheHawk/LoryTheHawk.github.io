@@ -7,6 +7,9 @@ Personal website of **Lorenzo Ferraioli**, M.Sc. Banking & Finance student at UC
 ## ✨ Features
 
 - 📈 A playful animated "stock chart" of my career (hover the dots!)
+- 🎯 Internship badge: looking for an internship from January 2027, mainly in Europe
+- 🗂️ Projects: VaR & Expected Shortfall model, rgeassociated.it and this site
+- 📖 A readable extract of my bachelor thesis on Cat Bonds
 - 📰 Finance ticker tape with very serious market data (COFFEE ▲ +42%)
 - 🇮🇹 / 🇬🇧 Language switch and ☀️ / 🌙 light-dark theme
 - 🎬 Count-up stats, skill bars and scroll animations

@@ -27,7 +27,7 @@
   --accent-2: #e2574c;
   --accent-soft: rgba(192, 38, 45, 0.07);
   --on-accent: #ffffff;
-  --up: #148a4a;
+  --up: #0f7a3f;
   --down: #c0392b;
   --shadow: 0 6px 24px rgba(13, 27, 42, 0.05);
   color-scheme: light;
@@ -49,6 +49,7 @@ body {
 }
 
 a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 strong { color: var(--accent); font-weight: 600; }
 .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
@@ -281,6 +282,8 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .tags li { font-size: 0.85rem; padding: 0.3rem 0.7rem; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--line); }
 .tags b { color: var(--accent); font-family: "JetBrains Mono", monospace; margin-left: 0.25rem; }
 
+.grid2 > *, .grid3 > * { min-width: 0; }
+.exp h3 { overflow-wrap: anywhere; }
 .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .grid2 > .card, .grid3 > .card { padding: 1.4rem; }

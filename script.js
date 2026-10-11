@@ -93,7 +93,7 @@ const IT = {
   "int.f1": "⛺ 14 anni nell'AGESCI: so montare una tenda sotto la pioggia e un DCF sotto scadenza.",
   "int.f2": "⚽ Il calcio mi ha insegnato che anche le migliori strategie hanno bisogno di gioco di squadra.",
   "int.f3": "✈️ Roma, Milano, Varsavia… il mio portafoglio di città è ben diversificato.",
-  "int.f4": "🍝 Da buon campano: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
+  "int.f4": "🍝 Regola numero uno: la pasta non si spezza. Mai. È un vincolo di bilancio non negoziabile.",
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
   "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa. E sono sempre pronto per una bella chiacchierata sui mercati.",
 };
@@ -102,7 +102,7 @@ const EN_FACTS = {
   "int.f1": "⛺ 14 years in AGESCI: I can pitch a tent in the rain and a DCF under a deadline.",
   "int.f2": "⚽ Football taught me that even the best strategy needs teamwork.",
   "int.f3": "✈️ Rome, Milan, Warsaw… my portfolio of cities is well diversified.",
-  "int.f4": "🍝 Proudly from Campania: never break the spaghetti. It's a hard budget constraint.",
+  "int.f4": "🍝 Rule number one: never break the spaghetti. It's a hard budget constraint.",
 };
 
 const original = new Map($$("[data-i18n]").map((el) => [el, el.innerHTML]));
@@ -161,7 +161,7 @@ const milestones = [
   { x: 0, y: 20, en: "<b>2020</b> · Joined GitHub as LoryTheHawk 🦅", it: "<b>2020</b> · Mi iscrivo a GitHub come LoryTheHawk 🦅" },
   { x: 1, y: 38, en: "<b>Sep 2022</b> · Start B.Sc. at Sapienza + internship at RGE Associated", it: "<b>Set 2022</b> · Inizio triennale alla Sapienza + stage in RGE Associated" },
   { x: 2, y: 52, en: "<b>Nov 2024</b> · CFA Research Challenge on De Nora", it: "<b>Nov 2024</b> · CFA Research Challenge su De Nora" },
-  { x: 3, y: 74, en: "<b>Sep 2025</b> · B.Sc. 110/110 cum laude 🎓 + start M.Sc. at UCSC", it: "<b>Set 2025</b> · Laurea 110/110 e lode 🎓 + inizio magistrale in Cattolica" },
+  { x: 3, y: 74, en: "<b>Sep–Oct 2025</b> · Start M.Sc. at UCSC + B.Sc. 110/110 cum laude 🎓", it: "<b>Set–Ott 2025</b> · Inizio magistrale in Cattolica + laurea 110/110 e lode 🎓" },
   { x: 4, y: 88, en: "<b>Sep 2026</b> · Exchange semester at Kozminski, Warsaw 🇵🇱", it: "<b>Set 2026</b> · Semestre di scambio alla Kozminski, Varsavia 🇵🇱" },
   { x: 5, y: 100, en: "<b>Next</b> · Investment banking & capital markets? 🚀", it: "<b>Prossimamente</b> · Investment banking e mercati dei capitali? 🚀" },
 ];
