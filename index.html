@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <!-- Ticker tape -->
@@ -202,29 +202,38 @@
     <!-- Skills -->
     <section id="skills" class="section">
       <h2 class="section__title"><span class="mono">05</span> <span data-i18n="skills.title">Skills</span></h2>
-      <div class="grid3">
+      <div class="grid2 skills">
         <div class="card">
           <h3 data-i18n="skills.fin">📈 Finance</h3>
           <ul class="tags tags--plain">
-            <li>DCF</li><li>Comparables</li><li>Precedent Transactions</li><li>Equity Research</li>
-            <li>Derivatives Pricing</li><li>Risk Management</li><li>Econometrics</li><li>Cat Bonds</li>
+            <li>Corporate Finance</li><li>Valuation</li><li>Equity Research</li><li>Financial Analysis</li>
+            <li>Capital Markets</li><li>Bond &amp; Stock Markets</li><li>Portfolio Management</li><li>Risk Management</li>
+            <li>Derivatives Pricing</li><li>Banking</li><li>Financial Reporting</li><li>Accounting &amp; Auditing</li>
           </ul>
         </div>
         <div class="card">
           <h3 data-i18n="skills.tech">💻 Tech</h3>
           <div class="bars" id="bars">
-            <div class="bar" data-level="60"><span>Excel</span><i></i></div>
+            <div class="bar" data-level="60"><span>Excel <em class="cert" data-i18n="skills.c.excel">✓ LinkedIn Skill Assessment</em></span><i></i></div>
             <div class="bar" data-level="60"><span>R</span><i></i></div>
-            <div class="bar" data-level="30"><span>Bloomberg</span><i></i></div>
-            <div class="bar" data-level="30"><span>Python</span><i></i></div>
+            <div class="bar" data-level="30"><span>Bloomberg <em class="cert" data-i18n="skills.c.bmc">✓ Bloomberg Market Concepts</em></span><i></i></div>
+            <div class="bar" data-level="30"><span>Python <em class="cert" data-i18n="skills.c.py">VaR &amp; Expected Shortfall project</em></span><i></i></div>
             <div class="bar" data-level="35"><span>HTML / CSS / JS</span><i></i></div>
           </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="skills.soft">🤝 Soft skills</h3>
+          <ul class="tags tags--plain">
+            <li data-i18n="skills.s1">Analytical Skills</li><li data-i18n="skills.s2">Problem Solving</li><li data-i18n="skills.s3">Teamwork</li>
+            <li data-i18n="skills.s4">Team Leadership</li><li data-i18n="skills.s5">Time Management</li><li data-i18n="skills.s6">Interpersonal Skills</li>
+            <li data-i18n="skills.s7">Client Relationship (CRM)</li>
+          </ul>
         </div>
         <div class="card">
           <h3 data-i18n="skills.lang">🗣️ Languages</h3>
           <ul class="langs">
             <li><span>🇮🇹 Italiano</span><b data-i18n="skills.native">Native</b></li>
-            <li><span>🇬🇧 English</span><b>C1</b></li>
+            <li><span>🇬🇧 English</span><b>C1 · IELTS 7.5</b></li>
             <li><span>🇪🇸 Español</span><b data-i18n="skills.elem">Elementary</b></li>
             <li><span>🇵🇱 Polski</span><b>Dzień dobry! 😅</b></li>
           </ul>
@@ -261,6 +270,6 @@
   </footer>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
