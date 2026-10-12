@@ -411,6 +411,7 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .footer__top, .footer__bottom { max-width: 1180px; margin: 0 auto; padding: 1.6rem clamp(16px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
 .footer__bottom { padding-top: 1.3rem; padding-bottom: 1.6rem; background: linear-gradient(var(--line), var(--line)) center top / calc(100% - 2 * clamp(16px, 5vw, 64px)) 1px no-repeat; }
 .footer__bottom p { margin: 0; }
+.footer__line > span + span::before { content: " · "; }
 .btn--cv { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 0.95rem; font-size: 0.82rem; line-height: 1; }
 .btn--cv svg { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .footer__bottom b { color: var(--up); font-weight: 500; white-space: nowrap; }
@@ -448,6 +449,11 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
   .footer__top, .footer__bottom { flex-direction: column; text-align: center; }
   .footer__id { flex-direction: column; gap: 0.5rem; }
   .footer__bottom { padding-bottom: 5.5rem; } /* room for the floating button */
+  /* one idea per line on phones: market close, thanks, copyright */
+  .footer__line { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .footer__line > span + span::before { content: none; }
+  .footer__close { order: -2; color: var(--text); }
+  .footer__copy { order: 1; margin-top: 0.4rem; font-size: 0.78rem; }
 }
 
 /* ---------- Thesis extract ---------- */
@@ -854,7 +860,11 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
       </nav>
     </div>
     <div class="footer__bottom">
-      <p>© <span id="year"></span> Lorenzo Ferraioli · <span data-i18n="footer.close">LRNZ closed at <b class="mono">110.00 ▲</b> · Thanks for visiting 🦅</span></p>
+      <p class="footer__line">
+        <span class="footer__copy">© <span id="year"></span> Lorenzo Ferraioli</span>
+        <span class="footer__close" data-i18n="footer.close">LRNZ closed at <b class="mono">110.00 ▲</b></span>
+        <span data-i18n="footer.thanks">Thanks for visiting 🦅</span>
+      </p>
       <a class="btn btn--accent btn--cv" href="Lorenzo_Ferraioli_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span data-i18n="footer.cv">View CV</span></a>
     </div>
   </footer>
@@ -945,6 +955,6 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
   </dialog>
 
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=24" defer></script>
+  <script src="script.js?v=25" defer></script>
 </body>
 </html>

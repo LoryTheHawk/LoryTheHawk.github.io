@@ -97,7 +97,8 @@ const IT = {
   "contact.title": "Parliamo di finanza (o di pasta) 🤝",
   "footer.clock": "a Varsavia",
   "footer.cv": "Apri il CV",
-  "footer.close": "LRNZ chiude a <b class=\"mono\">110,00 ▲</b> · Grazie della visita 🦅",
+  "footer.close": "LRNZ chiude a <b class=\"mono\">110,00 ▲</b>",
+  "footer.thanks": "Grazie della visita 🦅",
   "contact.text": "<strong>Cerco uno stage</strong> in investment banking o nei mercati dei capitali <strong>da gennaio 2027</strong>, principalmente in Europa. E sono sempre pronto per una bella chiacchierata sui mercati.",
 };
 
