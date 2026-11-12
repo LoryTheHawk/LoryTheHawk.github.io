@@ -362,6 +362,7 @@ h3 { font: 700 1.2rem "Fraunces", serif; margin: 0.2rem 0 0.3rem; }
 .kpis dt { font-size: 0.68rem; color: var(--muted); }
 .kpis dd { margin: 0.1rem 0 0; font-size: 0.95rem; color: var(--accent); }
 .projects h3 { font-size: 1.1rem; }
+.projects .kpis + .hero__cta { padding-top: 0.9rem; }
 .checks { padding: 0; margin: 0; list-style: none; display: grid; gap: 0.45rem; }
 .checks li { padding-left: 1.5rem; position: relative; }
 .checks li::before { content: "▲"; color: var(--up); position: absolute; left: 0; font-size: 0.75rem; top: 0.25rem; }
@@ -512,6 +513,16 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
 .thesis__cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 .thesis__cases .card { padding: 1.1rem 1.2rem; box-shadow: none; }
 .thesis__cases ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; display: grid; gap: 0.35rem; }
+.xt-wrap { overflow-x: auto; margin: 0.4rem 0 0.2rem; }
+.xt { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+.xt th, .xt td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.xt thead th { color: var(--muted); font-weight: 600; font-size: 0.78rem; white-space: nowrap; }
+.xt .num { text-align: right; font-family: "JetBrains Mono", monospace; white-space: nowrap; }
+.xt td.mono { white-space: nowrap; }
+.xt .pos { color: var(--up); }
+.xt .neg { color: var(--accent); }
+.xt-note { color: var(--muted); font-size: 0.88rem; }
+.xt-list { padding-left: 1.1rem; display: grid; gap: 0.4rem; }
 .thesis__toc { color: var(--muted); font-size: 0.88rem; border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.5rem; }
 @media (max-width: 640px) {
   .thesis__kpis, .thesis__cases { grid-template-columns: 1fr; }
@@ -708,7 +719,7 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
           </ul>
           <div class="thesis-cta">
             <p class="tl__thesis" data-i18n="edu.s.thesis">🎓 Thesis: <em>“The role of Catastrophe Bonds in Disaster Risk Financing and Capital Markets”</em></p>
-            <button class="btn btn--small" type="button" data-open-thesis data-i18n="edu.s.read">📖 Read the extract</button>
+            <button class="btn btn--small" type="button" data-open-dialog="thesis" data-i18n="edu.s.read">📖 Read the extract</button>
           </div>
         </li>
       </ol>
@@ -746,7 +757,20 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
     <!-- Projects -->
     <section id="projects" class="section">
       <h2 class="section__title"><span class="mono">04</span> <span data-i18n="proj.title">Projects</span></h2>
-      <div class="grid3 projects">
+      <div class="grid2 projects">
+        <article class="card exp">
+          <div class="tl__meta mono">Nov 2026 · Warsaw</div>
+          <h3>🏎️ Vintage Cars as an Alternative Investment</h3>
+          <p class="tl__role" data-i18n="proj.cars.role">Investment case · Kozminski University</p>
+          <p data-i18n="proj.cars.desc">Should a wealthy client put <strong>5% of the portfolio</strong> into classic cars? Returns, volatility and correlation of the K500 index vs the S&amp;P 500 and inflation (1994–2026), repeat sales of real cars, price drivers and a net-return model on a real auction.</p>
+          <ul class="tags tags--plain"><li>Excel</li><li>Alternative Investments</li><li>Asset Allocation</li><li>Index Analysis</li></ul>
+          <dl class="kpis mono">
+            <div><dt data-i18n="proj.cars.k1">Real CAGR since '94</dt><dd>+2.7%</dd></div>
+            <div><dt data-i18n="proj.cars.k2">Corr. vs S&amp;P 500</dt><dd>−0.15</dd></div>
+            <div><dt data-i18n="proj.cars.k3">Net return / yr</dt><dd>2–4%</dd></div>
+          </dl>
+          <div class="hero__cta"><button class="btn btn--accent" type="button" data-open-dialog="cars" data-i18n="proj.read">📖 Read the extract</button></div>
+        </article>
         <article class="card exp">
           <div class="tl__meta mono">May 2025 · Rome</div>
           <h3>📉 VaR &amp; Expected Shortfall</h3>
@@ -758,6 +782,7 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
             <div><dt>ES</dt><dd>$30,352</dd></div>
             <div><dt data-i18n="proj.var.k3">Portfolio</dt><dd>$1M</dd></div>
           </dl>
+          <div class="hero__cta"><button class="btn btn--accent" type="button" data-open-dialog="var" data-i18n="proj.read">📖 Read the extract</button></div>
         </article>
         <article class="card exp">
           <div class="tl__meta mono">2026 · Angri (SA)</div>
@@ -954,7 +979,171 @@ html[lang="it"] .only-en, html:not([lang="it"]) .only-it { display: none; }
     <button class="btn btn--accent thesis__back" type="button" data-close><span class="only-en">← Back to the site</span><span class="only-it">← Torna al sito</span></button>
   </dialog>
 
+  <!-- Vintage cars extract -->
+  <dialog class="thesis" id="cars" aria-labelledby="cars-title">
+    <header class="thesis__bar">
+      <span class="mono"><span class="only-en">📖 Project extract</span><span class="only-it">📖 Estratto del progetto</span></span>
+      <button class="thesis__close" type="button" data-close aria-label="Close">✕</button>
+    </header>
+
+    <div class="only-en">
+      <p class="tl__meta mono">Investment case · Alternative Investments · Kozminski University · November 2026</p>
+      <h2 id="cars-title">Vintage cars: should a wealthy client put 5% of the portfolio into classic cars?</h2>
+      <p class="thesis__sub">Team project (3 students). Data and model built in Excel from the K500 index, the S&amp;P 500 and US CPI, plus verified auction records.</p>
+
+      <h3>Executive summary</h3>
+      <p>Classic cars have <strong>beaten inflation but not equities</strong> since 1994, with a fraction of the volatility and a slightly negative correlation with stocks. Once transaction, insurance and storage costs are included, a <strong>gross 6–8% a year becomes a net 2–4%</strong>. Our recommendation: <strong>yes, but</strong> only as a long-term diversifier (10+ years), bought with expertise, ideally original and well-documented cars.</p>
+
+      <h3>Key numbers</h3>
+    </div>
+    <div class="only-it">
+      <p class="tl__meta mono">Caso d'investimento · Alternative Investments · Kozminski University · novembre 2026</p>
+      <h2>Auto d'epoca: un cliente facoltoso dovrebbe investire il 5% del portafoglio in auto classiche?</h2>
+      <p class="thesis__sub">Progetto di gruppo (3 studenti). Dati e modello costruiti in Excel a partire dall'indice K500, dall'S&amp;P 500 e dall'inflazione USA (CPI), con record d'asta verificati.</p>
+
+      <h3>Sintesi</h3>
+      <p>Dal 1994 le auto d'epoca hanno <strong>battuto l'inflazione ma non le azioni</strong>, con una frazione della volatilità e una correlazione leggermente negativa con il mercato azionario. Considerando commissioni d'asta, assicurazione e rimessaggio, un rendimento <strong>lordo del 6–8% annuo diventa un netto del 2–4%</strong>. La nostra raccomandazione: <strong>sì, ma</strong> solo come strumento di diversificazione di lungo periodo (10+ anni), con competenze adeguate e preferendo auto originali e ben documentate.</p>
+
+      <h3>I numeri chiave</h3>
+    </div>
+
+    <dl class="thesis__kpis">
+      <div><dd class="mono">+2.7%</dd><dt><span class="only-en">real annual return of the K500 since 1994 (S&amp;P 500: +6.3%)</span><span class="only-it">rendimento reale annuo del K500 dal 1994 (S&amp;P 500: +6,3%)</span></dt></div>
+      <div><dd class="mono">6.6%</dd><dt><span class="only-en">annual volatility vs 16.0% for the S&amp;P 500</span><span class="only-it">volatilità annua contro il 16,0% dell'S&amp;P 500</span></dt></div>
+      <div><dd class="mono">−0.15</dd><dt><span class="only-en">correlation with the S&amp;P 500; worst year −2.0% vs −27.5%</span><span class="only-it">correlazione con l'S&amp;P 500; anno peggiore −2,0% contro −27,5%</span></dt></div>
+      <div><dd class="mono">2–4%</dd><dt><span class="only-en">net annual return on a real car after 31–36% of total costs</span><span class="only-it">rendimento netto annuo su un'auto reale, dopo costi totali del 31–36%</span></dt></div>
+    </dl>
+
+    <div class="only-en">
+      <h3>1. Returns: the market vs stocks and inflation</h3>
+      <p>We used the <strong>K500 index</strong> (about 500 collectible models and ~30,000 auction results since 1994, rebased to 100) as the market benchmark, against the S&amp;P 500 and US CPI.</p>
+      <div class="xt-wrap"><table class="xt">
+        <thead><tr><th rowspan="2">Period</th><th class="num" colspan="3">Nominal CAGR</th><th class="num" colspan="2">Real CAGR</th></tr>
+        <tr><th class="num">K500</th><th class="num">S&amp;P 500</th><th class="num">US CPI</th><th class="num">K500</th><th class="num">S&amp;P 500</th></tr></thead>
+        <tbody><tr><td>Last 5 years</td><td class="num">2.7%</td><td class="num">12.2%</td><td class="num">4.2%</td><td class="num neg">−1.4%</td><td class="num pos">+7.7%</td></tr><tr><td>Last 10 years</td><td class="num">2.1%</td><td class="num">13.4%</td><td class="num">3.4%</td><td class="num neg">−1.3%</td><td class="num pos">+9.7%</td></tr><tr><td>Since 1994</td><td class="num">5.4%</td><td class="num">9.0%</td><td class="num">2.6%</td><td class="num pos">+2.7%</td><td class="num pos">+6.3%</td></tr></tbody></table></div>
+      <p class="xt-note">Cars protected purchasing power over three decades, but real returns turned negative over the last 5 and 10 years. Yearly returns also show a strong autocorrelation (0.55): good years tend to follow good years.</p>
+
+      <h3>2. Single cars vs their segment (repeat sales)</h3>
+      <p>Five cars bought and resold at auction, matched by chassis number, compared with their K500 segment over the same months.</p>
+      <div class="xt-wrap"><table class="xt">
+        <thead><tr><th>Car</th><th>Held</th><th class="num">Car CAGR</th><th class="num">Its K500 segment</th><th class="num">vs segment (pts)</th></tr></thead>
+        <tbody><tr><td>Porsche 911 Carrera RS 2.7 (1973)</td><td class="mono">2009 → 2015</td><td class="num">+16.9%</td><td class="num">+15.7%</td><td class="num pos">+1.2</td></tr><tr><td>Ferrari Dino 246 GTS (1973)</td><td class="mono">2002 → 2012</td><td class="num">+14.9%</td><td class="num">+9.3%</td><td class="num pos">+5.6</td></tr><tr><td>Shelby GT500 (1967)</td><td class="mono">2009 → 2026</td><td class="num">+3.1%</td><td class="num">+2.6%</td><td class="num pos">+0.5</td></tr><tr><td>Ferrari 456 GT (1995)</td><td class="mono">2017 → 2024</td><td class="num">−1.9%</td><td class="num">+3.6%</td><td class="num neg">−5.5</td></tr><tr><td>Alfa Romeo 1750 Spider (1969)</td><td class="mono">2022 → 2026</td><td class="num">−2.8%</td><td class="num">+1.8%</td><td class="num neg">−4.6</td></tr></tbody></table></div>
+      <p class="xt-note">Selection matters more than the market: the best cars beat their segment by up to 5.6 points a year, the weakest lagged by more than 5.</p>
+
+      <h3>3. What drives the price</h3>
+      <ul class="xt-list">
+        <li><b>Originality:</b> an unrestored 1956 Mercedes 300 SL sold for <b>+35%</b> more than a concours-restored one at the same auction.</li>
+        <li><b>Provenance:</b> a Le Mans-winning Ferrari 250 LM fetched <b>+107%</b> more than a sister car.</li>
+        <li><b>Rarity:</b> Porsche Carrera RS 2.7 Lightweight (200 built) <b>+89%</b> vs the Touring version.</li>
+        <li><b>Mileage and certification:</b> +22% for a low-mileage Ferrari Enzo, +23% for a certified Jaguar E-Type.</li>
+      </ul>
+
+      <h3>4. Gross vs net: one car, held five years</h3>
+      <p>On a real case (a Porsche 911 Speedster bought at Ardor Auctions, Warsaw, for PLN 1.2M) buyer's premium (15%), seller's commission (~10%), insurance and storage add up to <strong>31–36% of the hammer price</strong> over five years: a gross 6–8% a year shrinks to a <strong>net 2–4%</strong>.</p>
+
+      <h3>Recommendation</h3>
+      <p><strong>Yes, but only if</strong> the holding period is long (10+ years), the goal is diversification rather than high returns, and the client has expertise or an advisor (chassis and history checks against fraud). For smaller tickets, direct ownership of affordable classics; for top models, fractional ownership. We advise against classic car funds: high fees (2 + 20) and some failures, such as The Classic Car Fund in 2023.</p>
+
+      <h3>Also in the course: a counter-presentation on diamonds</h3>
+      <p>We challenged another team's case for investment diamonds: comparable 1-carat stones sold at auction <strong>37% below</strong> the average asking price, the Italian bank-diamond case led to <strong>€15.35M</strong> in Antitrust fines and over <strong>€700M</strong> seized, and the average 1 ct natural diamond fell <strong>30%</strong> from 2021 to 2025, before 1–2% a year of insurance costs.</p>
+
+      <p class="thesis__toc"><b>Data and method:</b> K500 index and segments (1994–2026), S&amp;P 500 (Yahoo Finance), US CPI (FRED); auction records from Bonhams, RM Sotheby's, Gooding &amp; Company, Barrett-Jackson, Mecum and Bring a Trailer. AI helped with layout and research; every auction record was checked by hand and every figure recalculated in Excel from the raw data.</p>
+    </div>
+    <div class="only-it">
+      <h3>1. Rendimenti: il mercato contro azioni e inflazione</h3>
+      <p>Come benchmark di mercato abbiamo usato l'<strong>indice K500</strong> (circa 500 modelli da collezione e ~30.000 risultati d'asta dal 1994, base 100), confrontato con l'S&amp;P 500 e l'inflazione USA.</p>
+      <div class="xt-wrap"><table class="xt">
+        <thead><tr><th rowspan="2">Periodo</th><th class="num" colspan="3">CAGR nominale</th><th class="num" colspan="2">CAGR reale</th></tr>
+        <tr><th class="num">K500</th><th class="num">S&amp;P 500</th><th class="num">Inflazione USA</th><th class="num">K500</th><th class="num">S&amp;P 500</th></tr></thead>
+        <tbody><tr><td>Ultimi 5 anni</td><td class="num">2,7%</td><td class="num">12,2%</td><td class="num">4,2%</td><td class="num neg">−1,4%</td><td class="num pos">+7,7%</td></tr><tr><td>Ultimi 10 anni</td><td class="num">2,1%</td><td class="num">13,4%</td><td class="num">3,4%</td><td class="num neg">−1,3%</td><td class="num pos">+9,7%</td></tr><tr><td>Dal 1994</td><td class="num">5,4%</td><td class="num">9,0%</td><td class="num">2,6%</td><td class="num pos">+2,7%</td><td class="num pos">+6,3%</td></tr></tbody></table></div>
+      <p class="xt-note">In trent'anni le auto hanno protetto il potere d'acquisto, ma negli ultimi 5 e 10 anni i rendimenti reali sono stati negativi. I rendimenti annui mostrano anche una forte autocorrelazione (0,55): a un anno buono tende a seguirne un altro.</p>
+
+      <h3>2. Singole auto contro il loro segmento (vendite ripetute)</h3>
+      <p>Cinque auto comprate e rivendute all'asta, identificate tramite numero di telaio e confrontate con il proprio segmento K500 negli stessi mesi.</p>
+      <div class="xt-wrap"><table class="xt">
+        <thead><tr><th>Auto</th><th>Detenuta</th><th class="num">CAGR auto</th><th class="num">Segmento K500</th><th class="num">vs segmento (punti)</th></tr></thead>
+        <tbody><tr><td>Porsche 911 Carrera RS 2.7 (1973)</td><td class="mono">2009 → 2015</td><td class="num">+16,9%</td><td class="num">+15,7%</td><td class="num pos">+1,2</td></tr><tr><td>Ferrari Dino 246 GTS (1973)</td><td class="mono">2002 → 2012</td><td class="num">+14,9%</td><td class="num">+9,3%</td><td class="num pos">+5,6</td></tr><tr><td>Shelby GT500 (1967)</td><td class="mono">2009 → 2026</td><td class="num">+3,1%</td><td class="num">+2,6%</td><td class="num pos">+0,5</td></tr><tr><td>Ferrari 456 GT (1995)</td><td class="mono">2017 → 2024</td><td class="num">−1,9%</td><td class="num">+3,6%</td><td class="num neg">−5,5</td></tr><tr><td>Alfa Romeo 1750 Spider (1969)</td><td class="mono">2022 → 2026</td><td class="num">−2,8%</td><td class="num">+1,8%</td><td class="num neg">−4,6</td></tr></tbody></table></div>
+      <p class="xt-note">La selezione conta più del mercato: le auto migliori hanno battuto il segmento fino a 5,6 punti l'anno, le peggiori sono rimaste indietro di oltre 5.</p>
+
+      <h3>3. Cosa determina il prezzo</h3>
+      <ul class="xt-list">
+        <li><b>Originalità:</b> una Mercedes 300 SL del 1956 non restaurata è stata venduta al <b>+35%</b> rispetto a una restaurata da concorso, nella stessa asta.</li>
+        <li><b>Storia:</b> una Ferrari 250 LM vincitrice a Le Mans ha ottenuto il <b>+107%</b> rispetto a un esemplare gemello.</li>
+        <li><b>Rarità:</b> Porsche Carrera RS 2.7 Lightweight (200 esemplari) <b>+89%</b> rispetto alla versione Touring.</li>
+        <li><b>Chilometraggio e certificazioni:</b> +22% per una Ferrari Enzo con pochi chilometri, +23% per una Jaguar E-Type certificata.</li>
+      </ul>
+
+      <h3>4. Lordo contro netto: un'auto, cinque anni</h3>
+      <p>Su un caso reale (una Porsche 911 Speedster acquistata da Ardor Auctions a Varsavia per 1,2 mln di PLN) commissione d'acquisto (15%), commissione di vendita (~10%), assicurazione e rimessaggio arrivano al <strong>31–36% del prezzo di aggiudicazione</strong> in cinque anni: un lordo del 6–8% annuo si riduce a un <strong>netto del 2–4%</strong>.</p>
+
+      <h3>Raccomandazione</h3>
+      <p><strong>Sì, ma solo se</strong> l'orizzonte è lungo (10+ anni), l'obiettivo è la diversificazione e non rendimenti elevati, e il cliente ha competenze o un consulente (verifiche su telaio e storia contro le frodi). Per importi minori, proprietà diretta di classiche accessibili; per i modelli top, proprietà frazionata. Sconsigliamo i fondi dedicati: commissioni elevate (2 + 20) e alcuni fallimenti, come The Classic Car Fund nel 2023.</p>
+
+      <h3>Nello stesso corso: una contro-presentazione sui diamanti</h3>
+      <p>Abbiamo contestato il caso d'investimento di un altro gruppo sui diamanti: pietre comparabili da 1 carato vendute all'asta al <strong>37% in meno</strong> del prezzo medio richiesto, il caso dei diamanti venduti dalle banche italiane con <strong>15,35 mln €</strong> di sanzioni Antitrust e oltre <strong>700 mln €</strong> sequestrati, e un calo del <strong>30%</strong> del prezzo medio di un diamante naturale da 1 ct tra il 2021 e il 2025, prima dei costi assicurativi dell'1–2% annuo.</p>
+
+      <p class="thesis__toc"><b>Dati e metodo:</b> indice K500 e segmenti (1994–2026), S&amp;P 500 (Yahoo Finance), CPI USA (FRED); record d'asta da Bonhams, RM Sotheby's, Gooding &amp; Company, Barrett-Jackson, Mecum e Bring a Trailer. L'AI ci ha aiutato per grafica e ricerca; ogni record d'asta è stato verificato a mano e ogni numero ricalcolato in Excel dai dati grezzi.</p>
+    </div>
+    <button class="btn btn--accent thesis__back" type="button" data-close><span class="only-en">← Back to the site</span><span class="only-it">← Torna al sito</span></button>
+  </dialog>
+
+  <!-- VaR extract -->
+  <dialog class="thesis" id="var" aria-labelledby="var-title">
+    <header class="thesis__bar">
+      <span class="mono"><span class="only-en">📖 Project extract</span><span class="only-it">📖 Estratto del progetto</span></span>
+      <button class="thesis__close" type="button" data-close aria-label="Close">✕</button>
+    </header>
+
+    <div class="only-en">
+      <p class="tl__meta mono">Team project · Risk Management · Sapienza University of Rome · May 2025</p>
+      <h2 id="var-title">Value at Risk and Expected Shortfall for a bond portfolio</h2>
+      <p class="thesis__sub">Market risk model with historical, parametric and Monte Carlo approaches, applied to a two-ETF portfolio.</p>
+
+      <h3>The question</h3>
+      <p><strong>Value at Risk</strong> sums up a portfolio's risk in one number: “with X% confidence we will not lose more than V in the next N days”. <strong>Expected Shortfall</strong> goes further and answers “if things go badly, how much do we expect to lose?”, averaging the losses beyond the VaR. That is why Basel III gives it more weight than VaR.</p>
+
+      <h3>Three ways to estimate VaR</h3>
+      <div class="xt-wrap"><table class="xt"><thead><tr><th>Method</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td><b>Historical</b></td><td>Uses real past returns, easy to compute</td><td>Depends on the historical window</td></tr><tr><td><b>Parametric (variance–covariance)</b></td><td>Fast and analytical</td><td>Assumes normally distributed returns</td></tr><tr><td><b>Monte Carlo</b></td><td>Many simulations, flexible and accurate</td><td>Complex and costly to run</td></tr></tbody></table></div>
+
+      <h3>Our model: historical VaR</h3>
+    </div>
+    <div class="only-it">
+      <p class="tl__meta mono">Progetto di gruppo · Risk Management · Sapienza Università di Roma · maggio 2025</p>
+      <h2>Value at Risk ed Expected Shortfall per un portafoglio obbligazionario</h2>
+      <p class="thesis__sub">Modello di rischio di mercato con approccio storico, parametrico e Monte Carlo, applicato a un portafoglio di due ETF.</p>
+
+      <h3>La domanda</h3>
+      <p>Il <strong>Value at Risk</strong> riassume in un solo numero il rischio di un portafoglio: “con una confidenza dell'X% non perderemo più di V nei prossimi N giorni”. L'<strong>Expected Shortfall</strong> va oltre e risponde a “se le cose vanno male, quanto ci aspettiamo di perdere?”, facendo la media delle perdite oltre il VaR. Per questo Basilea III gli dà più peso rispetto al VaR.</p>
+
+      <h3>Tre modi di stimare il VaR</h3>
+      <div class="xt-wrap"><table class="xt"><thead><tr><th>Metodo</th><th>Vantaggi</th><th>Svantaggi</th></tr></thead><tbody><tr><td><b>Storico</b></td><td>Usa rendimenti reali passati, semplice da calcolare</td><td>Dipende dalla finestra storica</td></tr><tr><td><b>Parametrico (varianza–covarianza)</b></td><td>Rapido e analitico</td><td>Assume rendimenti distribuiti normalmente</td></tr><tr><td><b>Monte Carlo</b></td><td>Molte simulazioni, flessibile e accurato</td><td>Complesso e costoso da implementare</td></tr></tbody></table></div>
+
+      <h3>Il nostro modello: VaR storico</h3>
+    </div>
+
+    <dl class="thesis__kpis">
+      <div><dd class="mono">$1M</dd><dt><span class="only-en">portfolio: EMB 70% (emerging-market bonds) · IEF 30% (7–10y US Treasuries)</span><span class="only-it">portafoglio: EMB 70% (obbligazioni dei mercati emergenti) · IEF 30% (Treasury USA 7–10 anni)</span></dt></div>
+      <div><dd class="mono">10d · 95%</dd><dt><span class="only-en">time horizon and confidence level</span><span class="only-it">orizzonte temporale e livello di confidenza</span></dt></div>
+      <div><dd class="mono">$20,469</dd><dt><span class="only-en">Value at Risk: the 5th percentile of the 10-day loss distribution</span><span class="only-it">Value at Risk: 5° percentile della distribuzione delle perdite a 10 giorni</span></dt></div>
+      <div><dd class="mono">$30,352</dd><dt><span class="only-en">Expected Shortfall: average loss beyond the VaR</span><span class="only-it">Expected Shortfall: perdita media oltre il VaR</span></dt></div>
+    </dl>
+
+    <div class="only-en">
+      <p class="xt-note">Steps: weighted daily log returns → cumulative 10-day loss distribution → 5th percentile for the VaR → mean of the losses beyond it for the ES.</p>
+      <h3>Regulation and backtesting</h3>
+      <p>The 1996 Basel amendment set market-risk capital on a 10-day, 99% VaR. We also linked the number of <strong>VaR breaches</strong> to the regulatory multiplier applied to capital: 0–9 breaches → 1.5×, 10–99 → 2×, 100+ → 2.5×.</p>
+      <p class="thesis__toc"><b>Contents:</b> market risk · VaR · Expected Shortfall · VaR vs ES · estimation methods and comparison · actual returns vs the normal distribution · regulation (Basel I–III) · historical VaR model and output · VaR breaches and regulatory multiplier. Main reference: J.C. Hull, <em>Options, Futures and Other Derivatives</em>.</p>
+    </div>
+    <div class="only-it">
+      <p class="xt-note">Passaggi: rendimenti logaritmici giornalieri ponderati → distribuzione cumulata delle perdite a 10 giorni → 5° percentile per il VaR → media delle perdite oltre la soglia per l'ES.</p>
+      <h3>Regolamentazione e backtesting</h3>
+      <p>L'emendamento di Basilea del 1996 ha fissato il capitale per il rischio di mercato su un VaR a 10 giorni al 99%. Abbiamo inoltre collegato il numero di <strong>VaR breach</strong> al moltiplicatore regolamentare del capitale: 0–9 breach → 1,5×, 10–99 → 2×, 100+ → 2,5×.</p>
+      <p class="thesis__toc"><b>Indice:</b> rischio di mercato · VaR · Expected Shortfall · VaR vs ES · metodi di stima e confronto · rendimenti effettivi vs distribuzione normale · regolamentazione (Basilea I–III) · modello di VaR storico e output · VaR breach e moltiplicatore regolamentare. Riferimento principale: J.C. Hull, <em>Opzioni, futures e altri derivati</em>.</p>
+    </div>
+    <button class="btn btn--accent thesis__back" type="button" data-close><span class="only-en">← Back to the site</span><span class="only-it">← Torna al sito</span></button>
+  </dialog>
+
   <div class="flyer" id="flyer" aria-hidden="true">🦅</div>
-  <script src="script.js?v=25" defer></script>
+  <script src="script.js?v=26" defer></script>
 </body>
 </html>

@@ -63,6 +63,12 @@ const IT = {
   "proj.var.role": "Modello di rischio di mercato · Sapienza Università di Roma",
   "proj.var.desc": "Stima di <strong>VaR ed ES</strong> con metodo storico, parametrico e simulazione Monte Carlo. Costruzione delle distribuzioni di perdita di un portafoglio multi-asset e valutazione del rischio secondo gli standard regolamentari (VaR breach e moltiplicatori di Basilea).",
   "proj.var.k3": "Portafoglio",
+  "proj.cars.role": "Caso d'investimento · Kozminski University",
+  "proj.cars.desc": "Un cliente facoltoso dovrebbe investire il <strong>5% del portafoglio</strong> in auto d'epoca? Rendimenti, volatilità e correlazione dell'indice K500 contro S&amp;P 500 e inflazione (1994–2026), vendite ripetute di auto reali, fattori di prezzo e un modello di rendimento netto su un'asta reale.",
+  "proj.cars.k1": "CAGR reale dal '94",
+  "proj.cars.k2": "Corr. con S&amp;P 500",
+  "proj.cars.k3": "Rend. netto / anno",
+  "proj.read": "📖 Leggi l'estratto",
   "proj.visit": "Visita il sito ↗",
   "proj.site.role": "Questo sito",
   "proj.site.desc": "Fatto a mano in HTML, CSS e JavaScript: grafico animato della carriera, barra dei titoli di borsa, switch IT/EN e tema chiaro/scuro. Nessun framework, ospitato su GitHub Pages.",
@@ -300,12 +306,15 @@ $$(".interest").forEach((card) => {
   });
 });
 
-// ===== Thesis extract dialog =====
-const thesis = $("#thesis");
-$("[data-open-thesis]").addEventListener("click", () => thesis.showModal());
-thesis.addEventListener("click", (e) => {
-  // close on the ✕ button or on a click on the backdrop
-  if (e.target.closest("[data-close]") || e.target === thesis) thesis.close();
+// ===== Extract dialogs (thesis, projects) =====
+$$("[data-open-dialog]").forEach((btn) => {
+  btn.addEventListener("click", () => $("#" + btn.dataset.openDialog).showModal());
+});
+$$("dialog.thesis").forEach((dlg) => {
+  dlg.addEventListener("click", (e) => {
+    // close on the ✕ / back buttons or on a click on the backdrop
+    if (e.target.closest("[data-close]") || e.target === dlg) dlg.close();
+  });
 });
 
 // ===== Easter egg: click the logo and the hawk flies =====
